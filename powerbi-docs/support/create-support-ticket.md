@@ -3,23 +3,24 @@
 		# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 		# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title:       How to create a Fabric and Power BI Support ticket
-description: Creating a support ticket for Fabric and Power BI
-author:      royrubinstein
-ms.author:    mihart
-ms.service:  powerbi
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    troubleshooting 
-ms.date:     06/14/2023
+title: How to create a Fabric and Power BI Support ticket
+description: Learn how to create a support ticket for Fabric and Power BI, depending on your role (administrator versus user).
+author: royrubinstein
+ms.author: mihart
+ms.service: powerbi
+ms.subservice: powerbi-admin
+# ms.prod: # To use ms.prod, uncomment it and delete ms.service
+ms.topic: troubleshooting 
+ms.date: 08/13/2024
 ---
 
 # Create a support ticket
 
-Before creating a support ticket, get real-time help by using the [Power Platform Admin Center](https://admin.powerplatform.microsoft.com/support) (admin roles only) or the [Fabric Support Page](https://support.fabric.microsoft.com/en-US/support). If the issue can't be resolved through self-help, create a support ticket.
+Before creating a support ticket, you can search for Fabric content by using the [Help Pane in Fabric](https://msit.powerbi.com/home?experience=fabric-developer&pane=help).  On the [Microsoft Fabric support](https://support.fabric.microsoft.com/support) page, review the **Product status dashboard** list, the **Service Outage/Degradation** status, the **Awareness** status, and the current [Known issues](https://support.fabric.microsoft.com/known-issues).
 
 ## Prerequisites
 
-Support tickets can be created by users with one of the following security roles or licenses.  
+Users can create support tickets if they have one of the following security roles or licenses:
 
 - Microsoft Entra role administrator
 
@@ -51,87 +52,64 @@ Support tickets can be created by users with one of the following security roles
 
 - Helpdesk administrator
 
-- Power BI Pro users can create support tickets for Power BI.
+- Power BI Pro users can create support tickets for Power BI
 
-- Fabric users can create support tickets for Fabric products.
+- Fabric users can create support tickets for Fabric products
 
 ## Steps for creating a support ticket
-The steps you take to create a support ticket vary, depending on your role. 
 
-### For administrators
+The steps you take to create a support ticket vary, depending on your role.
 
-1. Sign in to the [Power Platform admin center](https://admin.powerplatform.microsoft.com/) with your admin credentials.
+1. From the top menu bar, select the question mark (**?**) to open the Fabric Help Pane. In the Help Pane, you can search for content from Microsoft Learn and the different Fabric workloads communities. 
 
-2. Select **Help + support** > **Get Help + support**
+   > [!NOTE]
+   > Administrators can also navigate to the [Power Platform admin center (PPAC)](https://admin.powerplatform.microsoft.com/) with their admin credentials to create a support ticket.
+   
+   
+1. In the "Other resources" card, select **Get Microsoft help.** 
 
-   ![Screenshot of the Help+Support page.](media/create-support-ticket/help-support-1.png)
-      
-3. Select the product you're experiencing an issue with.
+   :::image type="content" source="media/create-support-ticket/Help_pane_other_resources.png" alt-text="Screenshot of Other Resources card with link to Get Microsoft Help.":::
+   
+   > [!NOTE]
+   > If the admin sets a link to an internal Help Desk, [as described here](/fabric/admin/service-admin-portal-help-support), a link to **Help Desk** will be shown. However, admins will always be redirected to the **Help + Support** section in the **Admin Portal.**
+   
+   
+   
+   
+1. In the **Admin Portal**, navigate to **Help + Support** and click on **New support request.** 
 
+1. Select the product you're experiencing an issue with.
+
+1. Fill in the description of the issue and select the arrow to the right of the text box. Solutions matching the issue's description appear.
+
+
+
+
+   :::image type="content" source="media/create-support-ticket/provide-issue-description.png" alt-text="Screenshot of the How can we help screen, showing where to find the issue description field.":::
+   
+1. If you don't find the correct solution, answer a few additional questions to see possible solutions to your issue. Select the relevant solution and see if the content can successfully guide you to a fix.
+
+   :::image type="content" source="media/create-support-ticket/solutions-and-contact-support.png" alt-text="Screenshot of the Solutions tab, showing the Recommended solutions and Recommended documentation lists.":::
+   
+1. If the guidance doesn't resolve your issue, scroll down, select **Next**, and then select your support plan. You can select either using the "Microsoft Fabric Subscription" or your Unified or Premier support plan. 
+
+   ![Screenshot of selecting a support plan.](media/create-support-ticket/selecting-support-plan.png)
+
+1. If you have a **Unified or Premier** support plan that doesn't appear under **Support plan**, select **Add new contract** and fill in the fields. If you don't know your access or contract ID or are interested in purchasing a [Unified support contract](/power-bi/support/service-support-options), contact your service admin or Customer Success Account Manager (CSAM).
+
+   :::image type="content" source="media/create-support-ticket/new-support-contract.png" alt-text="Screenshot of the Support tab, showing where to select Add new contract.":::
+   
    > [!TIP]
-   > You can type the product name to quickly find the requested product.
+   > - For **Contract ID/Password**, enter your Unified or Premier contract ID.
+   > - The **Contract ID/Password** defaults to the Unified or Premier contract ID. If you have changed the password when registering online in the Unified/Premier portal, you should use the updated password instead of the contract ID.
+   
+   
+1. If the guidance doesn't resolve your issue, scroll down, select **Next**, and then fill in the fields on the Support tab.
 
-4. Fill in the description of the issue and select the arrow to the right. Solutions matching the issue's description are presented.
-
-   ![Screenshot of field where you provide issue description.](media/create-support-ticket/provide-issue-description.png)
-
-5. If no solution is found, select the problem type and subtype and then choose **See solutions**. For some problem type and subtype selections, you're asked to provide additional information.
-
-   ![Screenshot showing ST selection.](media/create-support-ticket/support-topic-selection.png)
-
-6. Based on the information you provide, PPAC presents you with a list of possible solutions to your issue. Select the relevant solution and determine if the content can successfully guide you to a fix.
-
-   ![Screenshot of suggested Solutions.](media/create-support-ticket/solutions-and-contact-support.png)
-
-7. If the guidance doesn't resolve your issue, scroll down and select **Contact Support**, and fill in the fields in the following pages.
-
-   ![Screenshot of the Contact support tab.](media/create-support-ticket/support-tab.png)
-
-8. If you have a **Unified or Premier** support plan that isn't listed, select **Add new contract** and fill in the fields. If you don't know your access or contract ID, contact your service admin, Incident Manager or Customer Success Account Manager (CSAM).
-
-   ![Screenshot of a new support contract.](media/create-support-ticket/new-support-contract.png)
-
-   > [!TIP]
-   > 
-   >- For **Contract ID/Password**, enter your Unified or Premier contract ID.
-   >- The **Contract ID/Password** defaults to the Unified or Premier contract ID. If you've changed the password when registering online in the Unified/Premier portal, you should use the updated password instead of the contract ID.
-
-
-
-### For Fabric users and Power BI Pro users
-
-1. On the [Fabric Support page](https://support.fabric.microsoft.com/en-US/support), review the status dashboard, outage/degradation and **Awareness** fields, and **Known issues** to ensure that your issue is not already known. Then, scroll down to **Create a support request** and select the product you're experiencing an issue with.
-
-   ![Screenshot of Support page product selection.](media/create-support-ticket/support-page-product-selection.png)
-
-2. Fill in the description of the issue and select the arrow to the right. Solutions matching the issue's description are presented.
-
-   ![Screenshot of Iframe issue description.](media/create-support-ticket/iframe-issue-description.png)
-
-3. If no solution is found, select the problem type and subtype and then choose **Get solutions**. For some problem type and subtype selections, you're asked to provide additional information.
-
-   ![Screenshot of iframe ST selection.](media/create-support-ticket/iframe-support-topic-selection-1.png)
-
-4. Based on the information you provide, you see a list of possible solutions to your issue. Select the relevant solution and see if the content can successfully guide you to a fix.
-
-   ![Screenshot of Solutions and contact support.](media/create-support-ticket/solutions-and-contact-support.png)
-
-5. If the guidance doesn't resolve your issue, scroll down and select **Contact Support**, and fill in the fields in the following pages.
-
-   ![Screenshot of Support tab.](media/create-support-ticket/support-tab.png)
-
-6. If you have a **Unified or Premier** support plan that isn't listed, select **Add new contract** and fill in the fields. If you don't know your access or contract ID, contact your service admin or Incident Manager or Customer Success Account Manager (CSAM).
-
-   ![Screenshot of New support contract.](media/create-support-ticket/new-support-contract.png)
-
-   > [!TIP]
-   > 
-   >- For **Contract ID/Password**, enter your Unified or Premier contract ID.
-   >- The **Contract ID/Password** defaults to the Unified or Premier contract ID. If you have changed the password when registering online in the Unified/Premier portal, you should use the updated password instead of the contract ID.
-      
+   :::image type="content" source="media/create-support-ticket/support-tab.png" alt-text="Screenshot of the Support tab, showing the required fields.":::
+   
 ### Live Chat
-1. For some of the combinations of problem type and subtype, users might see the option to start a live chat session with a Microsoft Support representative. The option to start a live chat session appears on the **Contact** page. 
 
-   ![PPACLivechat.](media/create-support-ticket/livechat.png)
+Users who open support cases through PPAC might see the option to start a live chat session with a Microsoft Support representative. The option to start a live chat session appears on the **Contact** page.
 
-        
+   :::image type="content" source="media/create-support-ticket/livechat.png" alt-text="Screenshot of the Contact tab, showing where to select Live Chat.":::

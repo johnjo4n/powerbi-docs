@@ -1,14 +1,14 @@
 ---
-title: Introduction to use Data view utils to create formatting models in Power BI visual
+title: Formatting Models in Power BI Visuals
 description: This article describes how to use SVG utils to create formatting models for the format pane of a custom Power BI visual.
 author: mberdugo
 ms.author: monaberdugo
 manager: 
-ms.reviewer: sranins
+ms.reviewer: tebercov 
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: reference
-ms.date: 10/23/2022
+ms.date: 10/23/2023
 ms.custom: engagement-fy23
 ---
 
@@ -206,9 +206,9 @@ class myVisualGroupSettings extends FormattingSettingsGroup {
 
 ## Formatting settings slice
 
-The formatting settings slice type consists of two types of slices - [simple and composite](./format-pane.md#formatting-model-components).
+The formatting settings slice type consists of two types of slices - [simple and composite](./format-pane-general.md#formatting-model-components).
 
-Each slice contains formatting properties. There's a long list of available [formatting properties types](./format-pane.md#visualization-pane-formatting-properties).
+Each slice contains formatting properties. There's a long list of available [formatting properties types](./format-pane-general.md#visualization-pane-formatting-properties).
 
 Example declaring formatting settings slice of type `NumUpDown` with limitations:
 
@@ -347,7 +347,7 @@ new formattingSettings.ColorPicker({
 
 ## Reset settings to default
 
-Formatting model utils will enable you to [reset settings to default](./format-pane.md#reset-settings-to-default) by automatically adding all the formatting properties descriptors to the formatting card list of features to revet to default descriptors `revertToDefaultDescriptors`.
+Formatting model utils will enable you to [reset settings to default](./format-pane-example.md#reset-settings-to-default) by automatically adding all the formatting properties descriptors to the formatting card list of features to revet to default descriptors `revertToDefaultDescriptors`.
 
 You can enable resetting formatting settings from:
 

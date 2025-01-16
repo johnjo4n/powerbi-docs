@@ -7,7 +7,7 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-developer
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 08/25/2024
 ---
 
 # Create a Microsoft Entra tenant to use with Power BI
@@ -45,10 +45,7 @@ When you create a new Microsoft Entra tenant, you become the first user of that 
 
 Create a master user to use as your master embedding account. You can think of the master user account as a service account.
 
-1. In the home page of the Azure portal, select the Microsoft Entra ID tab.
-
-    > [!div class="mx-imgBorder"]
-    >![Screenshot of Microsoft Entra ID tab.](media/create-an-azure-active-directory-tenant/aad-flyout.png)
+1. In the home page of the Azure portal, select the **Microsoft Entra ID** tab.
 
 2. Under **Manage**, select **Users**.
 
@@ -68,7 +65,7 @@ Create a master user to use as your master embedding account. You can think of t
 5. Sign up for Power BI with the user account that you created in step 4. Go to [powerbi.com](https://powerbi.microsoft.com/getting-started-with-power-bi/) and select **Try Power BI for free**.
 
     > [!div class="mx-imgBorder"]
-    >![Screenshot showing the Power BI free trial offer.](media/create-an-azure-active-directory-tenant/try-powerbi-free.png)
+    >![Screenshot showing the Fabric free trial offer.](media/create-an-azure-active-directory-tenant/try-powerbi-free.png)
 
     When you sign up, you're prompted to try Power BI Pro free for 60 days. You can opt into that to become a Pro user, which gives you the option to [start developing an embedded solution](embed-sample-for-customers.md).
 

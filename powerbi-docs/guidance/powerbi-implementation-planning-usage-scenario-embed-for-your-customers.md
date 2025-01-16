@@ -1,13 +1,14 @@
 ---
 title: "Power BI usage scenarios: Embed for your customers"
 description: "Learn how a developer can programmatically embed Power BI content in a custom application for your customers."
-author: peter-myers
-ms.author: v-myerspeter
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 01/16/2023
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Power BI usage scenarios: Embed for your customers
@@ -30,13 +31,13 @@ The following diagram depicts a high-level overview of the most common user acti
 
 The above diagram depicts the following user actions, tools, and features:
 
-| **Item** | **Description** |
+| Item | Description |
 | --- | --- |
-| ![Item 1.](../media/legend-number/legend-number-01-fabric.svg) | The Power BI content creator develops a BI solution by using [Power BI Desktop](/power-bi/fundamentals/desktop-what-is-desktop). |
-| ![Item 2.](../media/legend-number/legend-number-02-fabric.svg) | When ready, the content creator publishes the Power BI Desktop file (.pbix) or Power BI project file (.pbip) to the [Power BI service](/power-bi/fundamentals/power-bi-service-overview). |
-| ![Item 3.](../media/legend-number/legend-number-03-fabric.svg) | Some data sources may require an [On-premises data gateway](/power-bi/connect-data/service-gateway-onprem) or VNet gateway for data refresh, like those that reside within a private organizational network. |
+| ![Item 1.](../media/legend-number/legend-number-01-fabric.svg) | The Power BI content creator develops a BI solution by using [Power BI Desktop](../fundamentals/desktop-what-is-desktop.md). |
+| ![Item 2.](../media/legend-number/legend-number-02-fabric.svg) | When ready, the content creator publishes the Power BI Desktop file (.pbix) or Power BI project file (.pbip) to the [Power BI service](../fundamentals/power-bi-service-overview.md). |
+| ![Item 3.](../media/legend-number/legend-number-03-fabric.svg) | Some data sources may require an [On-premises data gateway](../connect-data/service-gateway-onprem.md) or VNet gateway for data refresh, like those that reside within a private organizational network. |
 | ![Item 4.](../media/legend-number/legend-number-04-fabric.svg) | A Power BI workspace contains Power BI items ready for embedding. An embedding identity, either a service principal or master user account, must belong to either the [workspace Admin or Member role](powerbi-implementation-planning-security-content-creator-planning.md#workspace-roles). In a multi-tenancy solution, the separation of tenants is achieved by creating one workspace for each tenant. This design pattern is known as _workspace separation_. |
-| ![Item 5.](../media/legend-number/legend-number-05-fabric.svg) | The custom application prompts the app user to authenticate by using any authentication method (not necessarily Microsoft Entra ID—[previously known as Azure Active Directory](/azure/active-directory/fundamentals/new-name)). |
+| ![Item 5.](../media/legend-number/legend-number-05-fabric.svg) | The custom application prompts the app user to authenticate by using any authentication method (not necessarily Microsoft Entra ID. |
 | ![Item 6.](../media/legend-number/legend-number-06-fabric.svg) | When authentication succeeds, the custom application uses the embedding identity to acquire and cache a Microsoft Entra access token. |
 | ![Item 7.](../media/legend-number/legend-number-07-fabric.svg) | The custom application uses the Microsoft Entra access token to make Power BI REST API calls on behalf of the embedding identity. Specifically, the application uses the access token to retrieve metadata about workspace items. Metadata includes properties required to embed content in the custom application. It also uses the access token to generate and cache embed tokens, which represent facts about Power BI content and how the application can access it. |
 | ![Item 8.](../media/legend-number/legend-number-08-fabric.svg) | The custom application embeds a specific Power BI item in an `iframe` HTML element. The application can support the creation and editing of Power BI reports, providing the embedding identity has permission to do so. |
@@ -82,7 +83,7 @@ An app can use a service principal to acquire a Microsoft Entra token. A Microso
 
 #### Master user account
 
-An app can use a _master user account_ to acquire an AD token. A master user account is a regular Microsoft Entra user. In Power BI, the account must belong to the workspace Amin or Member role to embed workspace content. It must also have either a Power BI Pro or Power BI Premium Per User (PPU) license.
+An app can use a _master user account_ to acquire an AD token. A master user account is a regular Microsoft Entra user. In Power BI, the account must belong to the workspace Admin or Member role to embed workspace content. It must also have either a Power BI Pro or Power BI Premium Per User (PPU) license.
 
 > [!NOTE]
 > It's not possible to use a master user account to embed paginated reports.
@@ -93,8 +94,11 @@ For more information about embedding identities, see [Set up permissions to embe
 
 When embedding Power BI content for your customers, you need to ensure that content resides in a workspace that has one of the following license modes:
 
-- **Premium per capacity:** This license mode is available with [Power BI Premium](/power-bi/enterprise/service-premium-what-is).
-- **Embedded:** This license mode is available with [Power BI Embedded](https://azure.microsoft.com/products/power-bi-embedded/).
+- **Premium capacity**: This license mode is available with [Power BI Premium](../enterprise/service-premium-what-is.md).
+- **Embedded**: This license mode is available with [Power BI Embedded](https://azure.microsoft.com/products/power-bi-embedded/).
+- **Fabric capacity**: This license mode is available with [Microsoft Fabric](/fabric/enterprise/licenses#capacity-license).
+
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
 
 Each license mode option requires the purchase of a billable product that is a capacity-based license. A capacity-based license allows you to create _reserved capacities_.
 
@@ -114,11 +118,11 @@ The application can set up and automate operations, and it can respond to user-i
 > [!TIP]
 > The _Power BI Embedded Analytics Playground_ is a website that helps you learn, explore, and experiment with Power BI embedded analytics. It includes a developer sandbox for hands-on experiences that use the client APIs with sample Power BI content or your own content. Code snippets and showcases are available for you to explore, too.
 >
-> For more information, see [What is the Power BI embedded analytics playground?](/power-bi/developer/embedded/power-bi-playground/)
+> For more information, see [What is the Power BI embedded analytics playground?](https://go.microsoft.com/fwlink/?linkid=848279)
 
 ### Enforce data permissions
 
-When the app users should only have access to view a subset of data, you need to develop a solution that restricts access to Power BI semantic model ([previously known as a dataset](../connect-data/service-datasets-rename.md)) data. The reason might be because some users aren't permitted to view specific data, such as sales results of other sales regions. Achieving this requirement commonly involves setting up row-level security (RLS), which involves defining roles and rules that filter model data.
+When the app users should only have access to view a subset of data, you need to develop a solution that restricts access to Power BI semantic model data. The reason might be because some users aren't permitted to view specific data, such as sales results of other sales regions. Achieving this requirement commonly involves setting up row-level security (RLS), which involves defining roles and rules that filter model data.
 
 When you use the _For your customers scenario_, the app must set the effective identity of the embed token to restrict access to data. This effective identity determines how Power BI will connect to the model and how it will enforce RLS roles. How you set up the effective identity depends on the type of Power BI semantic model.
 
@@ -131,7 +135,7 @@ Multiple organizations can use a multitenancy app, where each organization is a 
 The recommended approach is to use the _workspace separation_ model. You can achieve this approach by creating one Power BI workspace for each tenant. Each workspace contains Power BI artifacts that are specific to that tenant, and the semantic models connect to a separate database for each tenant.
 
 > [!TIP]
-> For more information about the workspace separation model, see [Automate workspace separation](/training/modules/power-bi-embedded-automate/workspace-separation). For more information about scalable multitenancy apps, see [Service principal profiles for multitenancy apps in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+> For more information about the workspace separation model, see [Automate workspace separation](/training/modules/power-bi-embedded-automate/workspace-separation). For more information about scalable multitenancy apps, see [Service principal profiles for multitenancy apps in Power BI Embedded](../developer/embedded/embed-multi-tenancy.md).
 
 Alternatively, the single multi-customer database model is available. When you use this model, your solution will achieve separation with a single workspace that includes a set of Power BI items that are shared across all tenants. RLS roles, which are defined in the semantic models, will help filter the data more securely to ensure that organizations only view their own data.
 
@@ -141,19 +145,17 @@ Developing a programmatic solution requires skill, time, and effort. Consider th
 
 ### Gateway setup
 
-Typically, a [data gateway](/power-bi/connect-data/service-gateway-onprem) is required when accessing data sources that reside within the private organizational network or a virtual network. The two purposes of a gateway are to [refresh imported data](/power-bi/connect-data/refresh-data), or view a report that queries a live connection or [DirectQuery](/power-bi/connect-data/desktop-directquery-about) semantic model.
+Typically, a [data gateway](../connect-data/service-gateway-onprem.md) is required when accessing data sources that reside within the private organizational network or a virtual network. The two purposes of a gateway are to [refresh imported data](../connect-data/refresh-data.md), or view a report that queries a live connection or [DirectQuery](../connect-data/desktop-directquery-about.md) semantic model.
 
 > [!NOTE]
-> A centralized [data gateway](/power-bi/connect-data/service-gateway-personal-mode#on-premises-data-gateway-vs-on-premises-data-gateway-personal-mode) in _standard mode_ is strongly recommended over gateways in [personal mode](/power-bi/connect-data/service-gateway-personal-mode). In standard mode, the data gateway supports live connection and DirectQuery operations (in addition to scheduled data refresh operations).
+> A centralized [data gateway](../connect-data/service-gateway-personal-mode.md#on-premises-data-gateway-vs-on-premises-data-gateway-personal-mode) in _standard mode_ is strongly recommended over gateways in [personal mode](../connect-data/service-gateway-personal-mode.md). In standard mode, the data gateway supports live connection and DirectQuery operations (in addition to scheduled data refresh operations).
 
 ### System oversight
 
-The [activity log](/power-bi/enterprise/service-admin-auditing) records user activities that occur in the Power BI service. Power BI administrators can use the activity log data that's collected to perform [auditing](powerbi-implementation-planning-auditing-monitoring-overview.md) to help them understand usage patterns and adoption.
+The [activity log](../enterprise/service-admin-auditing.md) records user activities that occur in the Power BI service. Power BI administrators can use the activity log data that's collected to perform [auditing](powerbi-implementation-planning-auditing-monitoring-overview.md) to help them understand usage patterns and adoption.
 
 ## Related content
 
 To learn more about Power BI embedded analytics, work through the [Embed Power BI analytics](/training/paths/power-bi-embedded/) learning path.
-
-You can also work through the [Power BI Developer in a Day course](/power-bi/learning-catalog/developer-online-course/). It includes a self-study kit that guides you through the process of developing an ASP.NET Core MVC app.
 
 For other useful scenarios to help you with Power BI implementation decisions, see the [Power BI usage scenarios](powerbi-implementation-planning-usage-scenario-overview.md) article.

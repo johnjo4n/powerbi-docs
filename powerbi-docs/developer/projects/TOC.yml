@@ -17,9 +17,11 @@
       href: projects-azdo.md
     - name: "Azure DevOps build pipelines"
       href: projects-build-pipelines.md
+    - name: "Deploy using Fabric APIs"
+      href: /rest/api/fabric/articles/get-started/deploy-project?toc=/power-bi/developer/projects/TOC.json
   - name: External tools
     items:
     - name: External tools in Power BI Desktop
-      href: ../../transform-model/desktop-external-tools.md
+      href: ../../transform-model/desktop-external-tools.md?toc=/power-bi/developer/projects/TOC.yml
     - name: Register an external tool
-      href: ../../transform-model/desktop-external-tools-register.md
+      href: ../../transform-model/desktop-external-tools-register.md?toc=/power-bi/developer/projects/TOC.yml

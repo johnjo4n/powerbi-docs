@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Create reports and dashboards in Power BI - documentation
+title: Create reports and dashboards in Power BI
 summary: Power BI documentation provides expert information for creating reports, dashboards, metrics, and paginated reports.
 
 metadata:
-  title: Create reports and dashboards in Power BI - documentation
+  title: Create reports and dashboards in Power BI
   description: Power BI documentation provides expert information for creating reports, dashboards, metrics, and paginated reports.
   services: powerbi
   ms.service: powerbi
@@ -26,6 +26,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Use Power BI Home
+            url: desktop-home.md
           - text: Use the updated ribbon
             url: desktop-ribbon.md
           - text: "Accessibility overview"

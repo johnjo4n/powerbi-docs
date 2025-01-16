@@ -1,13 +1,14 @@
 ---
 title: "Power BI usage scenarios: Self-service content publishing"
 description: "Learn how Power BI self-service content publishing is about publishing content to development, test, and production with deployment pipelines."
-author: peter-myers
-ms.author: v-myerspeter
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Power BI usage scenarios: Self-service content publishing
@@ -40,7 +41,7 @@ The following diagram depicts a high-level overview of the most common user acti
 
 The scenario diagram depicts the following user actions, tools, and features:
 
-| **Item** | **Description** |
+| Item | Description |
 | --- | --- |
 | ![Item 1.](../media/legend-number/legend-number-01-fabric.svg) | The Power BI content creator develops a BI solution using Power BI Desktop. |
 | ![Item 2.](../media/legend-number/legend-number-02-fabric.svg) | The Power BI Desktop file (.pbix) of Power BI project file (.pbip) is saved to a shared library in OneDrive. The content creator retains versions of these files in OneDrive. |
@@ -85,9 +86,9 @@ It's a best practice to consider the entire workspace content as an *analytical 
 
 Spend time planning the [permissions model](/fabric/cicd/best-practices-cicd#plan-your-permission-model). Full flexibility for applying different [workspace roles](../collaborate-share/service-roles-new-workspaces.md#workspace-roles) (between development, test, and production) is supported. As depicted in the scenario diagram, it's common to assign the following workspace permissions:
 
-- **Development workspace:** Limit access to a team of content creators and owners who collaborate together.
-- **Test workspace:** Limit access to reviewers involved with quality assurance, data validations, and user acceptance testing activities.
-- **Production workspace:** Grant viewer access to content consumers of the Power BI app (and the workspace, when appropriate). Limit access to those who need to manage and publish production content, involving the fewest number of users possible.
+- **Development workspace**: Limit access to a team of content creators and owners who collaborate together.
+- **Test workspace**: Limit access to reviewers involved with quality assurance, data validations, and user acceptance testing activities.
+- **Production workspace**: Grant viewer access to content consumers of the Power BI app (and the workspace, when appropriate). Limit access to those who need to manage and publish production content, involving the fewest number of users possible.
 
 > [!NOTE]
 > Most content consumers are unaware of the development and test workspaces.
@@ -105,6 +106,8 @@ When possible, it's recommended that the existing content creator or owner condu
 
 ### Power BI Premium licensing
 
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
+
 Power BI deployment pipelines are a Premium feature. There are various [ways to obtain licensing](/fabric/cicd/faq#what-type-of-capacity-do-i-need), depending on whether the content is used for development, test, or production purposes. The scenario diagram depicts use of a Premium [P SKUs](../enterprise/service-premium-what-is.md#capacities-and-skus) such as P1, P2, P3, P4, or P5 for the production workspace, and a Power BI Premium Per User (PPU) [user-based Premium license](../enterprise/service-premium-per-user-faq.yml) for the development and test workspaces. Using PPU licensing for workspaces with very few users (as depicted in the scenario diagram) is a cost-effective way to use Premium features, while keeping them separate from the Premium capacity that's assigned for production workloads.
 
 ### Deployment settings
@@ -115,12 +118,12 @@ Power BI deployment pipelines are a Premium feature. There are various [ways to 
 
 Purposefully, [certain properties aren't copied](/fabric/cicd/deployment-pipelines/understand-the-deployment-process#item-properties-that-are-not-copied) to the target workspace during a deployment. Several key post-deployment activities include:
 
-- **Data refresh:** Data isn't copied from the source workspace to the target workspace. Publishing from a deployment pipeline is always a metadata-only deployment. Therefore, a data refresh is usually required after deploying to a target workspace. For first-time deployments, the data source credentials or gateway connectivity (as appropriate) must be configured as well.
-- **Apps:** Power BI apps aren't published automatically by deployment pipelines.
-- **Access roles, sharing permissions, and app permissions:** Permissions aren't overwritten during a deployment.
-- **Workspace properties:** Properties, such as contacts and the workspace description, aren't overwritten during a deployment.
-- **Power BI item properties:** Certain Power BI item properties, such as sensitivity labels, might be overwritten during a deployment in [certain circumstances](/fabric/cicd/deployment-pipelines/understand-the-deployment-process#item-properties-copied-during-deployment).
-- **Unsupported Power BI items:** Additional manual steps might need to be taken for [Power BI items that aren't supported](/fabric/cicd/deployment-pipelines/understand-the-deployment-process#deployed-items) by the deployment pipeline.
+- **Data refresh**: Data isn't copied from the source workspace to the target workspace. Publishing from a deployment pipeline is always a metadata-only deployment. Therefore, a data refresh is usually required after deploying to a target workspace. For first-time deployments, the data source credentials or gateway connectivity (as appropriate) must be configured as well.
+- **Apps**: Power BI apps aren't published automatically by deployment pipelines.
+- **Access roles, sharing permissions, and app permissions**: Permissions aren't overwritten during a deployment.
+- **Workspace properties**: Properties, such as contacts and the workspace description, aren't overwritten during a deployment.
+- **Power BI item properties**: Certain Power BI item properties, such as sensitivity labels, might be overwritten during a deployment in [certain circumstances](/fabric/cicd/deployment-pipelines/understand-the-deployment-process#item-properties-copied-during-deployment).
+- **Unsupported Power BI items**: Additional manual steps might need to be taken for [Power BI items that aren't supported](/fabric/cicd/deployment-pipelines/understand-the-deployment-process#deployed-items) by the deployment pipeline.
 
 > [!CAUTION]
 > There isn't a rollback process once a deployment has occurred with a deployment pipeline. Consider carefully what change management processes and approvals are required in order to deploy to the production workspace.
@@ -138,7 +141,7 @@ The scenario diagram depicts using OneDrive for storing the source Power BI Desk
 
 ### Gateway setup
 
-Typically, a data gateway is required when accessing data sources that reside within the private organizational network or a virtual network. The [On-premises data gateway](../connect-data/service-gateway-onprem.md) becomes relevant once a Power BI Desktop file is published to the Power BI service. The two purposes of a gateway are to [refresh imported data](../connect-data/refresh-data.md), or view a report that queries a live connection or [DirectQuery](../connect-data/desktop-directquery-about.md) semantic model—[previously known as a dataset](../connect-data/service-datasets-rename.md) (not depicted in the scenario diagram).
+Typically, a data gateway is required when accessing data sources that reside within the private organizational network or a virtual network. The [On-premises data gateway](../connect-data/service-gateway-onprem.md) becomes relevant once a Power BI Desktop file is published to the Power BI service. The two purposes of a gateway are to [refresh imported data](../connect-data/refresh-data.md), or view a report that queries a live connection or [DirectQuery](../connect-data/desktop-directquery-about.md) semantic model (not depicted in the scenario diagram).
 
 When working with multiple environments, it's common to configure development, test, and production connections to use different source systems. In this case, use [data source rules and parameter rules](/fabric/cicd/deployment-pipelines/create-rules) to manage values that differ between environments.
 

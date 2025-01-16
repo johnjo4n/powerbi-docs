@@ -88,7 +88,7 @@ Watch the following short video on how to apply sensitivity labels and then try 
 > [!NOTE]
 > This video might show earlier versions of Power BI Desktop or the Power BI service.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4M5Gj]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=2b8ce782-72b1-4c1b-9ce8-d83c2be15d9f]
 
 ### Set the sensitivity label on a file
 
@@ -129,4 +129,4 @@ This article described how to apply sensitivity labels in Power BI. The followin
 
 - [Overview of sensitivity labels in Power BI](./service-security-sensitivity-label-overview.md)
 - [Enable sensitivity labels in Power BI](./service-security-enable-data-sensitivity-labels.md)
-- [Using Microsoft Defender for Cloud Apps controls in Power BI](./service-security-using-defender-for-cloud-apps-controls.md)
+- [Using Microsoft Defender for Cloud Apps controls in Power BI](/fabric/governance/service-security-using-defender-for-cloud-apps-controls)

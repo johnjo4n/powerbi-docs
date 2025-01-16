@@ -4,11 +4,11 @@ description: Documentation for displaying a Power BI dashboard, dashboard tile, 
 author: mihart
 ms.author: mihart
 ms.reviewer: mihart
-ms.custom: video-dtdLul6otYE
+ms.custom: video-removed
 ms.service: powerbi
 ms.subservice: pbi-explore
 ms.topic: how-to
-ms.date: 12/22/2023
+ms.date: 11/13/2024
 LocalizationGroup: Common tasks
 ---
 
@@ -16,13 +16,12 @@ LocalizationGroup: Common tasks
 
 [!INCLUDE [consumer-appliesto-yynn](../includes/consumer-appliesto-yynn.md)]
 
-> [!NOTE]  
-> This video might use earlier versions of Power BI.
 
-> [!VIDEO https://www.youtube.com/embed/dtdLul6otYE]
+You want your reports, dashboards, visuals, and tiles to display a certain way. Power BI offers you many options to get it just right. Two of those options: the **View** menu and **Focus mode** are discussed in this article. Used together, you can achieve the display that you want. And these display options aren't just for viewing, you can interact with the reports, dashboards, and visuals in all of these display modes. Most of these display options are also available in Power BI Desktop. 
 
-
-You want your reports, dashboards, visuals, and tiles to display a certain way. Power BI offers you many options to get it just right. Two of those options: the **View** menu and **Focus mode**, are discussed in this article. Used together, you can achieve the display that you want. And these display options aren't just for viewing, you can interact with the reports, dashboards, and visuals in all of these display modes. Most of these display options are also available in Power BI Desktop. 
+>
+> [!TIP] 
+> Reports can be navigated using [keyboard shortcuts.](../create-reports/desktop-accessibility-consuming-tools.md) 
 
 ## Focus mode versus full screen mode
 
@@ -38,16 +37,14 @@ Focus mode and full screen mode are two different ways to see more detail in you
 
 In the following example, we started with a report (1), opened one of the visuals in focus mode (2) and then opened that same visual in full screen mode (3). 
 
-:::image type="content" source="media/end-user-focus/power-bi-reports.png" alt-text="Individual screenshots of a report view, focus mode, and full screen mode." lightbox="media/end-user-focus/power-bi-reports.png":::
+:::image type="content" source="media/end-user-focus/power-bi-reports.png" alt-text="Individual screenshots of a report view, focus mode, and full screen mode." Lightbox="media/end-user-focus/power-bi-reports.png":::
 >>>>>>> 0c503460d027dc8fd874b257f9554b0d6c46955a
 
 ## When to use full screen mode
 
 :::image type="content" source="media/end-user-focus/power-bi-dashboard-focus.png" alt-text="Screenshot of a dashboard in full screen mode and default mode." lightbox="media/end-user-focus/power-bi-dashboard-focus.png":::
 
-Display your Power BI service content (dashboards, report pages, and visuals) without the distraction of menus and nav panes. You get an unadulterated, full view of your content at a glance, all the time. This view is sometimes referred to as TV mode.   
-
-If you're using the Power BI windows app, [Screenshot of full screen in Power BI Windows app.](./mobile/mobile-windows-10-app-presentation-mode.md) 
+Display your Power BI service content (dashboards, report pages, and visuals) without the distraction of menus and nav panes. You get an unadulterated, full view of your content at a glance, all the time. This view is sometimes referred to as TV mode.
 
 Use full screen mode to:
 
@@ -70,7 +67,7 @@ Full screen mode is available for dashboards and report pages.
 
 - To open a dashboard in full screen mode, select the full screen icon :::image type="icon" source="media/end-user-focus/power-bi-full-screen-icon.png"::: from the top menu bar. 
 
-- To open a report page in full screen mode, select **View** > **Full screen**.
+- To open a report page in full screen mode, select the View icon and choose **Full screen**.
 
     :::image type="content" source="media/end-user-focus/power-bi-view.png" alt-text="Screenshot showing Full screen selected in the View menu.":::
 
@@ -81,7 +78,7 @@ Full screen mode is available for dashboards and report pages.
 Your selected content fills the entire screen. When you're in full screen mode, navigate using the menu bar at the bottom. If you don't see menu options for a dashboard, move your cursor, and the menu appears. Because full screen is available for such a wide variety of content, the navigation options vary. Some of the options are: 
 
 
-  * Select the **Back**, **Go back**, or **Back to report** button  to navigate to the previous page in your browser. If the previous page was a Power BI page, it too displays in full screen mode.  Full screen mode persists until you exit out.
+  * Select the **Back**, **Go back**, or **Back to report** button  to navigate to the previous page in your browser. If the previous page was a Power BI page, it too displays in full screen mode. Full screen mode persists until you exit out.
 
   * :::image type="icon" source="media/end-user-focus/power-bi-fit-to-screen-icon.png":::
   :::image type="icon" source="media/end-user-focus/power-bi-fit-to-screen.png":::  

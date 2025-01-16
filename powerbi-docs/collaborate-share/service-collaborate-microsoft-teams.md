@@ -36,7 +36,7 @@ Organizations rely on Microsoft Teams, Microsoft Outlook, and Microsoft Office t
 In general, for Power BI to work in Microsoft Teams, ensure these elements:
 
 - Ensure the Power BI app is enabled in the Teams Admin center apps list.
-- Your users with a Fabric (Free) license can access personal analytics, including using the built-in Teams analytics report, and create reports in their My workspace.
+- Your users with a Fabric (Free) license can access personal analytics and create reports in their My workspace.
 - Your users with a Fabric (Free) license can also access content shared to them from a workspace that's part of a [Power BI Premium capacity (P SKU)](../enterprise/service-premium-what-is.md) or [Fabric F64 or greater capacity](/fabric/enterprise/licenses#capacity-and-skus).
 - Your users with a Power BI Pro or Premium Per User (PPU) license can share content with others or build content in workspaces.
 - Users need to sign in within the Power BI app for Teams or the Power BI service to activate their Power BI license.
@@ -57,7 +57,7 @@ You can integrate a Power BI report in Teams and share it with external users. H
 
 1. You invite the external user to the organization, and they accept your invitation. See [Distribute Power BI content to external guest users using Microsoft Entra B2B](../guidance/whitepaper-azure-b2b-power-bi.md) for details.
 2. Give the external user permission on the report. Individual permissions assignment works best.
-3. Make sure the external user has a Power BI license assigned to them. If the content is in a Premium capacity, the user only needs a Free license. If not, the user can [sign up for an individual free trial of Power BI Pro](../fundamentals/service-self-service-signup-for-power-bi.md#use-self-service-sign-up-to-get-an-individual-power-bi-license) or get a Premium Per User (PPU) license.
+3. Make sure the external user has a Power BI license assigned to them. If the content is in a Premium capacity, the user only needs a Free license. If not, the user can [sign up for an individual free trial of Power BI Pro](../fundamentals/service-self-service-signup-for-power-bi.md#use-an-in-product-link-to-upgrade-your-license) or get a Premium Per User (PPU) license.
 
 ## Known issues and limitations
 

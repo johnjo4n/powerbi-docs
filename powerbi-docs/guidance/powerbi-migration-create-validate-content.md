@@ -1,20 +1,21 @@
 ---
-title: Create content to migrate to Power BI
-description: Guidance on creating and validating content when migrating to Power BI.
-author: peter-myers
-ms.author: v-myerspeter
+title: "Create content to migrate to Power BI"
+description: "Guidance on creating and validating content when migrating to Power BI."
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Create content to migrate to Power BI
 
 This article describes **Stage 4**, which is concerned with creating and validating content when migrating to Power BI.
 
-:::image type="content" source="media/powerbi-migration-create-validate-content/migrate-to-power-bi-stage-4.svg" alt-text="Diagram shows the stages of a Power BI migration. Stage 4 is emphasized for this article." border="false":::
+:::image type="content" source="media/powerbi-migration-create-validate-content/migrate-to-power-bi-stage-4.svg" alt-text="Diagram showing the stages of a Power BI migration. Stage 4 is emphasized for this article." border="false":::
 
 > [!NOTE]
 > For a complete explanation of the above graphic, see [Power BI migration overview](powerbi-migration-overview.md).
@@ -35,7 +36,7 @@ At this juncture, the same person who performed the POC might carry on with prod
 
 ### Develop new Import semantic model
 
-You might choose to create a new Import semantic model ([previously known as a dataset](../connect-data/service-datasets-rename.md)) when an existing Power BI semantic model doesn't already exist to meet your needs, or if it can't be enhanced to meet your needs.
+You might choose to create a new Import semantic model when an existing Power BI semantic model doesn't already exist to meet your needs, or if it can't be enhanced to meet your needs.
 
 Ideally, from the very beginning, consider decoupling the development work for data and reports. [Decoupling data and reports](report-separate-from-model.md) will facilitate the separation of work, and permissions, when different people are responsible for data modeling and reports. It makes for a more scalable approach and encourages data reusability.
 
@@ -46,7 +47,7 @@ The essential activities related to development of an Import semantic model incl
 - Create the [semantic model](../transform-model/desktop-modeling-view.md), including [date tables](../transform-model/desktop-date-tables.md).
 - Create and verify [model relationships](../transform-model/desktop-create-and-manage-relationships.md).
 - Define [measures](../transform-model/desktop-measures.md).
-- Set up [row-level security](../enterprise/service-admin-rls.md), if necessary.
+- Set up [row-level security](/fabric/security/service-admin-row-level-security), if necessary.
 - Configure synonyms and [optimize Q&A](../natural-language/q-and-a-best-practices.md).
 - Plan for scalability, performance, and concurrency, which might influence your decisions about data storage modes, such as using a [Composite model](../transform-model/desktop-composite-models.md) or [aggregations](../enterprise/aggregations-auto.md).
 
@@ -74,9 +75,9 @@ The essential activities related to development of a Power BI report or dashboar
 There are four main aspects to validation of a Power BI solution:
 
 1. Data accuracy
-2. Security
-3. Functionality
-4. Performance
+1. Security
+1. Functionality
+1. Performance
 
 ### Validate data accuracy
 
@@ -91,7 +92,7 @@ When validating security, there are two primary aspects to consider:
 - Data permissions
 - Access to semantic models, reports, and dashboards
 
-In an Import semantic model, data permissions are applied by defining [row-level security](../enterprise/service-admin-rls.md) (RLS). It's also possible that data permissions are enforced by the source system when using DirectQuery storage mode (possibly with [single sign-on](../connect-data/service-gateway-sso-overview.md)).
+In an Import semantic model, data permissions are applied by defining [row-level security](/fabric/security/service-admin-row-level-security) (RLS). It's also possible that data permissions are enforced by the source system when using DirectQuery storage mode (possibly with [single sign-on](../connect-data/service-gateway-sso-overview.md)).
 
 The main ways to grant access to Power BI content are:
 
@@ -114,6 +115,8 @@ Performance of the Power BI solution is important for consumer experience. Most 
 
 Many performance issues arise from substandard [DAX (Data Analysis eXpressions)](../transform-model/desktop-quickstart-learn-dax-basics.md), poor semantic model design, or suboptimal report design (for instance, trying to render too many visuals on a single page). Technical environment issues, such as the network, an overloaded data gateway, or how a Premium capacity is configured can also contribute to performance issues. For more information, see the [Optimization guide for Power BI](power-bi-optimization.md) and [Troubleshoot report performance in Power BI](report-performance-troubleshoot.md).
 
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
+
 ## Document the solution
 
 There are two main types of documentation that are useful for a Power BI solution:
@@ -123,9 +126,9 @@ There are two main types of documentation that are useful for a Power BI solutio
 
 Documentation can be stored wherever it's most easily accessed by the target audience. Common options include:
 
-- **Within a SharePoint site:** A SharePoint site might exist for your Center of Excellence or an internal Power BI community site.
-- **Within an app:** URLs can be set up when publishing a Power BI app to direct the consumer to more information.
-- **Within individual Power BI Desktop files:** Model elements, like tables and columns, can define a description. These descriptions appear as tooltips in the **Fields** pane when authoring reports.
+- **Within a SharePoint site**: A SharePoint site might exist for your Center of Excellence or an internal Power BI community site.
+- **Within an app**: URLs can be set up when publishing a Power BI app to direct the consumer to more information.
+- **Within individual Power BI Desktop files**: Model elements, like tables and columns, can define a description. These descriptions appear as tooltips in the **Data** pane when authoring reports.
 
 > [!TIP]
 > If you create a site to serve as a hub for Power BI-related documentation, consider [customizing the Get Help menu](/fabric/admin/service-admin-portal-help-support#publish-get-help-information) with its URL location.
@@ -158,7 +161,7 @@ Other helpful resources include:
 
 - [Microsoft's BI transformation](center-of-excellence-microsoft-business-intelligence-transformation.md)
 - [Power BI implementation planning](powerbi-implementation-planning-introduction.md)
-- Questions? [Try asking the Power BI Community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com/)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)
 
-Experienced Power BI partners are available to help your organization succeed with the migration process. To engage a Power BI partner, visit the [Power BI partner portal](https://powerbi.microsoft.com/partners/).
+Experienced Power BI partners are available to help your organization succeed with the migration process. To find a Power BI partner, visit the [Microsoft Power BI partners portal](https://www.microsoft.com/power-platform/products/power-bi/partners).

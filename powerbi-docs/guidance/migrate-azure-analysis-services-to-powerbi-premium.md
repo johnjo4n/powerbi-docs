@@ -1,25 +1,27 @@
 ---
-title: Migrate from Azure Analysis Services to Power BI Premium or Power BI Embedded
-description: Guidance to help you migrate your Azure Analysis Services (AAS) data models to Power BI Premium or Power BI Embedded.
-author: peter-myers
-ms.author: v-myerspeter
+title: "Migrate from Azure Analysis Services to Power BI Premium or Power BI Embedded"
+description: "Guidance to help you migrate your Azure Analysis Services (AAS) data models to Power BI Premium or Power BI Embedded."
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 05/22/2023
-ms.custom: intro-migration
+ms.custom: fabric-cat, intro-migration
+ms.date: 12/30/2024
 ---
 
 # Migrate from Azure Analysis Services to Power BI Premium
 
 This article targets [Azure Analysis Services (AAS)](/azure/analysis-services/analysis-services-overview) data modelers and administrators. It provides them with guidance and rationale to help migrate their AAS databases to Power BI Premium or Power BI Embedded.
 
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
+
 ## Background
 
 Power BI has evolved into the leading platform for both self-service and IT-managed enterprise business intelligence (BI). With exponential growth in data volumes and complexity, Power BI customers demand enterprise BI solutions that scale to petabytes, are secure, easy to manage, and accessible to all users across the largest of organizations.
 
-For over two decades, Microsoft has continued to make deep investments in enterprise BI. AAS and SQL Server Analysis Services (SSAS) are based on mature BI data modeling technology used by countless enterprises. Today, that same technology is also at the heart of Power BI semantic models ([previously known as datasets](../connect-data/service-datasets-rename.md)).
+For over two decades, Microsoft has continued to make deep investments in enterprise BI. AAS and SQL Server Analysis Services (SSAS) are based on mature BI data modeling technology used by countless enterprises. Today, that same technology is also at the heart of Power BI semantic models.
 
 > [!NOTE]
 > In this article, the terms data model, BI model, tabular model, database, and Power BI semantic model have the same meaning. This article commonly uses the terms *data model* for AAS model and *semantic model* for Power BI model.
@@ -86,9 +88,9 @@ AAS provides the Analysis Services database engine for hosting data models, whic
 | **Security** |||
 | [Bring Your Own Key (BYOK)](../enterprise/service-encryption-byok.md), which allows customers to use their own encryption key to encrypt data stored in the Microsoft cloud | No | Yes |
 | [Virtual network connectivity](/data-integration/vnet/overview), which allows Power BI to work seamlessly in an organization's virtual network (VNet) | No | Yes  |
-| [Azure Private Link](../enterprise/service-security-private-links.md), which provides secure access for data traffic in Power BI | No | Yes |
+| [Azure Private Link](/fabric/security/security-private-links-overview), which provides secure access for data traffic in Power BI | No | Yes |
 | Single sign-on (SSO) for DirectQuery sources, which allows connecting to data sources by using the report user's identity | No | Yes |
-| [Row-level security (RLS)](../enterprise/service-admin-rls.md), which restricts access to specific rows of data for specific users | Yes | Yes |
+| [Row-level security (RLS)](/fabric/security/service-admin-row-level-security), which restricts access to specific rows of data for specific users | Yes | Yes |
 | [Object-level security (OLS)](/analysis-services/tabular-models/object-level-security), which restricts access to specific tables or columns for specific users | Yes | Yes |
 | [Firewall](/azure/analysis-services/analysis-services-qs-firewall), which when enabled, allows setting allowed IP address ranges | Yes | No <sup>1</sup> |
 | **Governance** |||
@@ -115,10 +117,10 @@ AAS provides the Analysis Services database engine for hosting data models, whic
 | [XMLA endpoint](../enterprise/service-premium-connect-tools.md), which allows open-platform connectivity for data model consumption and visualization tools, including third-party tools | Yes | Yes |
 | [Multi-Geo feature](../admin/service-admin-premium-multi-geo.md), which helps multinational customers address regional, industry-specific, or organizational data residency requirements | Yes | Yes |
 | **Discoverability** |||
-| [Data hub](../connect-data/service-data-hub.md) integration, which helps users discover, explore, and use Power BI semantic models | No | Yes |
+| [OneLake catalog](/fabric/governance/onelake-catalog) integration, which helps users discover, explore, and use Power BI semantic models | No | Yes |
 | [Data lineage view](../collaborate-share/service-data-lineage.md) and [semantic model impact analysis](../collaborate-share/service-dataset-impact-analysis.md), which help users understand and assess Power BI item dependencies | No | Yes |
 | **Monitoring and diagnostic logging** |||
-| [Microsoft Fabric Capacity Metrics app](/fabric/enterprise/metrics-app), which provides monitoring capabilities for Power BI capacities | No | Yes |
+| [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app), which provides monitoring capabilities for Power BI capacities | No | Yes |
 | [Audit log](/fabric/admin/track-user-activities), which tracks user activities across Power BI and Microsoft 365 | No | Yes |
 | [Azure Log Analytics (LA) integration](../transform-model/log-analytics/desktop-log-analytics-overview.md), which allows administrators to configure a Log Analytics connection for a Power BI workspace | Yes | Yes  |
 | [Metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-types#metric-alerts), which provide a way to get notified when one of your multi-dimensional metrics crosses a threshold | Yes | No |
@@ -168,7 +170,7 @@ For more information, see:
 
 - [Power BI pricing](https://powerbi.microsoft.com/pricing/)
 - [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
-- [Purchase A SKUs for testing and other scenarios](../enterprise/service-admin-premium-testing.md#purchase-a-skus-for-testing-and-other-scenarios)
+- [Purchase A SKUs for testing and other scenarios](https://azure.microsoft.com/products/power-bi)
 
 ## Scalability benefits
 
@@ -282,7 +284,7 @@ SQL Server Extended Events (xEvents) are supported in AAS but not in Power BI Pr
 
 Both AAS and Power BI support [Microsoft Entra B2B collaboration](/azure/active-directory/external-identities/what-is-b2b), which enables and governs sharing with external users. Notably, the User Principal Name (UPN) format required by AAS is different to Power BI.
 
-To identify the user, Power BI utilizes a unique name claim in Microsoft Entra ID ([previously known as Azure Active Directory](/azure/active-directory/fundamentals/new-name)) while AAS uses an email claim. While there may be many instances where these two identifiers align, the unique name format is more stringent. If using dynamic RLS in Power BI, ensure that the value in the user identity table matches the account used to sign in to Power BI.
+To identify the user, Power BI utilizes a unique name claim in Microsoft Entra ID while AAS uses an email claim. While there may be many instances where these two identifiers align, the unique name format is more stringent. If using dynamic RLS in Power BI, ensure that the value in the user identity table matches the account used to sign in to Power BI.
 
 ### Scale-out
 
@@ -298,7 +300,7 @@ For more information about this article, check out the following resources:
 
 - [Migrate from Azure Analysis Services to Power BI Premium: Migration scenarios](migrate-azure-analysis-services-to-powerbi-premium-migration-scenarios.md)
 - [Migrate Azure Analysis Services to Power BI](../enterprise/aas-pbi-migration-overview.md)
-- Questions? [Try asking the Power BI community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)
 
-Power BI partners are available to help your organization succeed with the migration process. To engage a Power BI partner, visit the [Power BI partner portal](https://powerbi.microsoft.com/partners/).
+Power BI partners are available to help your organization succeed with the migration process. To find a Power BI partner, visit the [Microsoft Power BI partners portal](https://www.microsoft.com/power-platform/products/power-bi/partners).

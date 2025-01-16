@@ -8,7 +8,7 @@ ms.service: powerbi
 ms.subservice: pbi-reports-dashboards
 ms.topic: how-to
 ms.custom: video-RWRCPO
-ms.date: 03/10/2023
+ms.date: 05/30/2024
 LocalizationGroup: Create reports
 ---
 
@@ -29,7 +29,7 @@ Watch this video showing how to add page and bookmark navigators, and then try i
 > [!NOTE]  
 > This video might use earlier versions of Power BI Desktop or the Power BI service.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWRCPO]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d91b6399-1318-4c56-b0aa-9d3a81272d6a]
 
 ## Page navigator
 
@@ -185,6 +185,10 @@ Create a page navigation button and select the conditional formatting option for
    Now the button can navigate to different pages, depending on the user’s selection.
 
    :::image type="content" source="media/desktop-buttons/button-navigate-go.png" alt-text="Screenshot showing Navigate with a Go button.":::
+
+## Considerations and limitations
+
+- If the bold, italic and underline settings are **On** for the **Default** state, you can't turn them off for the **Selected** state.
 
 ## Related content
 

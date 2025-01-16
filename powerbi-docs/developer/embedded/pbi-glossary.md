@@ -4,12 +4,10 @@ description: Power BI documentation introduces many new terms and new uses for f
 author: mberdugo
 ms.author: monaberdugo
 services: power-bi
-ms.reviewer: 
 ms.service: powerbi
 ms.subservice: powerbi-developer
 ms.topic: reference
-ms.date: 11/09/2023
-ms.custom: contperf-fy21q1
+ms.date: 01/09/2024
 #Developers commonly ask for help with terminology, so this article provides a one-stop shop to look up definitions for unfamiliar terms so that the developer understands the actions they are reading about or performing without getting confused or frustrated.
 ---
 
@@ -328,7 +326,7 @@ A measure is a quantitative (numeric) field that can be used to do calculations.
 
 ### Mobile app
 
-Apps that allow you to run Power BI on iOS, Android, and Windows devices.
+Apps that allow you to run Power BI on iOS and Android devices.
 
 ### Modeling
 

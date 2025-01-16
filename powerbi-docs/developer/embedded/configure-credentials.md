@@ -1,29 +1,31 @@
 ---
 title: Configure credentials programmatically for Power BI embedded analytics
 description: Learn how to configure credentials programmatically and encrypt credentials for Power BI embedded analytics.
-author: KesemSharabi
-ms.author: kesharab
+author: mberdugo
+ms.author: monaberdugo
 ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-developer
 ms.topic: how-to
-ms.date: 11/1/2022
+ms.date: 05/21/2024
 ---
 
 # Configure credentials programmatically for Power BI
 
 **APPLIES TO:** :::image type="icon" source="../../includes/media/yes-icon.svg" border="false":::&nbsp;App&nbsp;owns&nbsp;data :::image type="icon" source="../../includes/media/yes-icon.svg" border="false":::&nbsp;User&nbsp;owns&nbsp;data
 
-Follow the steps in this article, to configure credentials programmatically for Power BI. Configuring credentials programmatically also allows you to encrypt credentials.
+To configure credentials programmatically for Power BI, follow the steps in this article. Configuring credentials programmatically also allows you to encrypt credentials.
 
->[!NOTE]
+The examples in this article are in [.NET](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) in C#. To find examples in [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials), [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials), and [PowerShell](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/EncryptGatewayCredentials.ps1), go to the respective repository.
+
+> [!NOTE]
 >
->* The calling user must be a semantic model owner or a gateway admin. You can also use a [service principal](../embedded/embed-service-principal.md). For example, the service principal can be the semantic model owner.
->* Cloud data sources and their corresponding credentials are managed at the user level.
+> * The calling user or [service principal](../embedded/embed-service-principal.md) must be either a semantic model owner or a gateway admin.
+> * Cloud data sources and their corresponding credentials are managed at the user level.
 
 ## Update the credentials flow for data sources
 
-1. Discover the data sources of the semantic model by calling [Get Datasources](/rest/api/power-bi/datasets/getdatasourcesingroup). The response body for each data source contains the type, connection details, gateway, and data source ID.
+1. Discover the semantic model's data sources by calling [Get Datasources](/rest/api/power-bi/datasets/getdatasourcesingroup). The response body for each data source contains the type, connection details, gateway, and data source ID.
 
     ```csharp
     // Select a datasource
@@ -33,13 +35,13 @@ Follow the steps in this article, to configure credentials programmatically for 
 
 2. Build the credentials string according to the [Update Datasource Examples](/rest/api/power-bi/gateways/updatedatasource#examples). The contents of the credentials string depends on the type of credentials.
 
-    # [.NET SDK v3](#tab/sdk3)
+    ### [.NET SDK v3](#tab/sdk3)
 
     ```csharp
     var credentials =  new BasicCredentials(username: "username", password :"*****");
     ```
 
-    # [.NET SDK v2](#tab/sdk2)
+    ### [.NET SDK v2](#tab/sdk2)
 
      ```csharp
     var credentials = "{\"credentialData\":[{\"name\":\"username\", \"value\":\"john\"},{\"name\":\"password\", \"value\":\"*****\"}]}";
@@ -48,7 +50,7 @@ Follow the steps in this article, to configure credentials programmatically for 
     ---
 
     >[!NOTE]
-    >If you're using cloud data sources, don't follow the next steps in this section. Call [Update Datasource](/rest/api/power-bi/gateways/updatedatasource) to set the credentials by using the gateway ID and data source ID that you obtained in step 1.
+    >If you're using cloud data sources, don't follow the next steps in this section. Call [Update Datasource](/rest/api/power-bi/gateways/updatedatasource) to set the credentials using the gateway ID and data source ID that you obtained in step 1.
 
 3. Retrieve the gateway public key by calling [Get Gateway](/rest/api/power-bi/gateways/getgateways).
 
@@ -58,13 +60,13 @@ Follow the steps in this article, to configure credentials programmatically for 
 
 4. Encrypt the credentials.
 
-    # [.NET SDK v3](#tab/sdk3)
+    ### [.NET SDK v3](#tab/sdk3)
 
     ```csharp
     var credentialsEncryptor = new AsymmetricKeyEncryptor(gateway.publicKey);
     ```
 
-    # [.NET SDK v2](#tab/sdk2)
+    ### [.NET SDK v2](#tab/sdk2)
 
     Encrypt the credentials string with the Gateway public key that you obtained from step 2. Different gateway versions might have different public key sizes. Refer to the following examples in the SDK code that are available from the [`PowerBI-CSharp` GitHub repository](https://github.com/microsoft/PowerBI-CSharp/tree/master/sdk/PowerBI.Api/Extensions):
     * [AsymmetricKeyEncryptor.cs](https://github.com/microsoft/PowerBI-CSharp/blob/master/sdk/PowerBI.Api/Extensions/AsymmetricKeyEncryptor.cs)
@@ -76,7 +78,7 @@ Follow the steps in this article, to configure credentials programmatically for 
 
 5. Build the credential details with encrypted credentials.
 
-    # [.NET SDK v3](#tab/sdk3)
+    ### [.NET SDK v3](#tab/sdk3)
 
     Use the **AsymetricKeyEncryptor** class with the public key retrieved in **Step 3**.
 
@@ -89,7 +91,7 @@ Follow the steps in this article, to configure credentials programmatically for 
     ```
 
 
-    # [.NET SDK v2](#tab/sdk2)
+    ### [.NET SDK v2](#tab/sdk2)
 
     ```csharp
     var credentialDetails = new CredentialDetails(
@@ -146,7 +148,7 @@ When you call [Create Datasource](/rest/api/power-bi/gateways/createdatasource) 
 
 ### Windows and basic credentials
 
-# [.NET SDK v3](#tab/sdk3)
+#### [.NET SDK v3](#tab/sdk3)
 
 ```csharp
 // Windows credentials
@@ -161,7 +163,7 @@ var credentialsEncryptor = new AsymmetricKeyEncryptor(publicKey);
 var credentialDetails = new CredentialDetails(credentials, PrivacyLevel.Private, EncryptedConnection.Encrypted, credentialsEncryptor);
 ```
 
-# [.NET SDK v2](#tab/sdk2)
+#### [.NET SDK v2](#tab/sdk2)
 
 ```csharp
 var credentials = "{\"credentialData\":[{\"name\":\"username\", \"value\":\"john\"},{\"name\":\"password\", \"value\":\"*****\"}]}";
@@ -179,7 +181,7 @@ var credentialsEncryptor = new AsymmetricKeyEncryptor(publicKey);
 var credentialDetails = new CredentialDetails(credentials, PrivacyLevel.Private, EncryptedConnection.Encrypted, credentialsEncryptor);
 ```
 
-# [.NET SDK v2](#tab/sdk2)
+#### [.NET SDK v2](#tab/sdk2)
 
 ```csharp
 var credentials = "{\"credentialData\":[{\"name\":\"key\", \"value\":\"ec....LA=\"}]}";
@@ -189,7 +191,7 @@ var credentials = "{\"credentialData\":[{\"name\":\"key\", \"value\":\"ec....LA=
 
 **OAuth2 credentials**
 
-# [.NET SDK v3](#tab/sdk3)
+#### [.NET SDK v3](#tab/sdk3)
 
 ```csharp
 var credentials = new OAuth2Credentials("TestToken");
@@ -197,7 +199,7 @@ var credentialsEncryptor = new AsymmetricKeyEncryptor(publicKey);
 var credentialDetails = new CredentialDetails(credentials, PrivacyLevel.Private, EncryptedConnection.Encrypted, credentialsEncryptor);
 ```
 
-# [.NET SDK v2](#tab/sdk2)
+#### [.NET SDK v2](#tab/sdk2)
 
 ```csharp
 var credentials = "{\"credentialData\":[{\"name\":\"accessToken\", \"value\":\"eyJ0....fwtQ\"}]}";
@@ -207,14 +209,14 @@ var credentials = "{\"credentialData\":[{\"name\":\"accessToken\", \"value\":\"e
 
 **Anonymous credentials**
 
-# [.NET SDK v3](#tab/sdk3)
+#### [.NET SDK v3](#tab/sdk3)
 
 ```csharp
 var credentials = new AnonymousCredentials();
 var credentialDetails = new CredentialDetails(credentials, PrivacyLevel.Private, EncryptedConnection.NotEncrypted);
 ```
 
-# [.NET SDK v2](#tab/sdk2)
+#### [.NET SDK v2](#tab/sdk2)
 
 ```csharp
 var credentials = "{\"credentialData\":\"\"}";
@@ -236,5 +238,4 @@ To discover gateways that are bindable, use [Discover Gateways](/rest/api/power-
 
 ## Related content
 
->[!div class="nextstepaction"]
->[Power BI REST APIs](/rest/api/power-bi/)
+* [Power BI REST APIs](/rest/api/power-bi/)

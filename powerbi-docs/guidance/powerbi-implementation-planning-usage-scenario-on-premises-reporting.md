@@ -1,13 +1,14 @@
 ---
 title: "Power BI usage scenarios: On-premises reporting"
 description: "Learn how Power BI on-premises reporting is about customer-managed reporting."
-author: peter-myers
-ms.author: v-myerspeter
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Power BI usage scenarios: On-premises reporting
@@ -29,7 +30,7 @@ The following diagram depicts a high-level overview of the most common user acti
 
 The scenario diagram depicts the following user actions, tools, and features:
 
-| **Item** | **Description** |
+| Item | Description |
 | --- | --- |
 | ![Item 1.](../media/legend-number/legend-number-01-fabric.svg) | A Power BI content creator builds a BI solution. |
 | ![Item 2.](../media/legend-number/legend-number-02-fabric.svg) | [Power BI Desktop for Report Server](../report-server/install-powerbi-desktop.md) connects to data from one or more data sources. Queries and data mashups, which combine multiple sources, are developed in the [Power Query Editor](/power-query/power-query-what-is-power-query). |
@@ -42,7 +43,7 @@ The scenario diagram depicts the following user actions, tools, and features:
 | ![Item 9.](../media/legend-number/legend-number-09-fabric.svg) | Report consumers can also view reports using [Power BI mobile apps](../consumer/mobile/mobile-apps-for-mobile-devices.md). |
 | ![Item 10.](../media/legend-number/legend-number-10-fabric.svg) | Server administrators manage the Windows server infrastructure. |
 | ![Item 11.](../media/legend-number/legend-number-11-fabric.svg) | Database administrators manage Power BI Report Server, including the report server databases, and SQL Server Agent. |
-| ![Item 12.](../media/legend-number/legend-number-12-fabric.svg) | SQL Server Agent jobs periodically [refresh import semantic models](../report-server/configure-scheduled-refresh.md)—[previously known as datasets](../connect-data/service-datasets-rename.md). |
+| ![Item 12.](../media/legend-number/legend-number-12-fabric.svg) | SQL Server Agent jobs periodically [refresh import semantic models](../report-server/configure-scheduled-refresh.md). |
 | ![Item 13.](../media/legend-number/legend-number-13-fabric.svg) | Administrators oversee and monitor activity in Power BI Report Server. |
 
 ## Key points
@@ -78,6 +79,8 @@ Additional configurations must be done to enable remote mobile access to Power B
 ### Licensing Power BI Report Server
 
 There are two ways to [license Power BI Report Server](../report-server/get-started.md#licensing-power-bi-report-server): Power BI Premium and SQL Server Enterprise Edition with Software Assurance.
+
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
 
 With the purchase of Power BI Premium capacity, Power BI Report Server can be installed on an on-premises server, provided it has the same number of cores as the capacity node's v-cores. This way, it's possible to adopt a hybrid approach supporting publication of content to the Power BI service (cloud) and to Power BI Report Server (on-premises or hosted cloud in Azure).
 

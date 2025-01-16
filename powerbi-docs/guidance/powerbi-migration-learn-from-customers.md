@@ -1,13 +1,14 @@
 ---
-title: Learn from customer Power BI migrations
-description: Learn from customers when migrating to Power BI.
-author: peter-myers
-ms.author: v-myerspeter
+title: "Learn from customer Power BI migrations"
+description: "Learn from customers when migrating to Power BI."
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 02/27/2022
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Learn from customer Power BI migrations
@@ -108,7 +109,7 @@ Each of the analytics groups is dedicated to a specific business unit or a share
 
 Relying on custom ASP.NET BI solutions was a barrier to developing new BI solutions. The required skill set meant that the number of self-service content authors was small. Because Power BI is a much more approachable tool—specifically designed for self-service BI—it spread quickly throughout the organization once it was released.
 
-The empowerment of data analysts within the company resulted in immediate positive outcomes. However, the initial focus with Power BI development was on visualization. While it resulted in valuable BI solutions, this focus resulted in a large number of Power BI Desktop files, each with a one-to-one relationship between the report and its semantic model ([previously known as a dataset](../connect-data/service-datasets-rename.md)). It resulted in many semantic models and duplication of data and business logic. To reduce duplication of data, logic, and effort, the company delivered training and provided support to content authors.
+The empowerment of data analysts within the company resulted in immediate positive outcomes. However, the initial focus with Power BI development was on visualization. While it resulted in valuable BI solutions, this focus resulted in a large number of Power BI Desktop files, each with a one-to-one relationship between the report and its semantic model. It resulted in many semantic models and duplication of data and business logic. To reduce duplication of data, logic, and effort, the company delivered training and provided support to content authors.
 
 > [!IMPORTANT]
 > Include information about the importance of data reusability in your internal training efforts. Address important concepts as early as is practical.
@@ -122,27 +123,29 @@ The company's data warehouse platform is DB2. Based on the current data warehous
 
 ### Educate authors about Premium licensing
 
-Since it was easier to get started with Power BI (compared with their legacy BI platform), many of the early adopters were people who didn't have a license to the previous BI tool. As expected, the number of content authors grew considerably. These content authors understandably wanted to share their content with others, resulting in a continual need for additional Power BI Pro licenses.
+Because it was easier to get started with Power BI (compared with their legacy BI platform), many of the early adopters were people who didn't have a license to the previous BI tool. As expected, the number of content authors grew considerably. These content authors understandably wanted to share their content with others, resulting in a continual need for additional Power BI Pro licenses.
 
 The company made a large investment in Premium workspaces, most notably to distribute Power BI content to many users with Fabric free licenses. The support team works with content authors to ensure they use Premium workspaces when appropriate. It avoids unnecessarily allocating Power BI Pro licenses when a user only needs to consume content.
 
 > [!IMPORTANT]
 > Licensing questions often arise. Be prepared to educate and help content authors to address licensing questions. Validate that user requests for Power BI Pro licenses are justified.
 
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
+
 ### Understand the data gateways
 
 Early on, the company had many personal gateways. Using an on-premises data gateway cluster shifts the management efforts to the central BI team, which allows the content author community to focus on producing content. The central BI team worked with the internal Power BI user community to reduce the number of personal gateways.
 
 > [!IMPORTANT]
-> Have a plan for creating and managing on-premises data gateways. Decide who is permitted to install and use a personal gateway and enforce it with gateway policies.
+> Have a plan for creating and managing on-premises data gateways. Decide who is permitted to install and use a personal gateway and enforce it with gateway policies. For more information, see [Manage gateways](powerbi-implementation-planning-data-gateways.md#manage-gateways).
 
 ### Formalize your support plan
 
 As the adoption of Power BI grew within the organization, the company found that a [multi-tier support approach](fabric-adoption-roadmap-user-support.md) worked well:
 
-- **Layer 1: Intra-team:** People learn from, and teach, each other on a day-to-day basis.
-- **Layer 2: Power BI community:** People ask questions of the internal Teams community to learn from each other and communicate important information.
-- **Layer 3: Central BI team and COE:** People submit email requests for assistance. *Office hour* sessions are held twice per week to collectively discuss problems and share ideas.
+- **Layer 1: Intra-team**: People learn from, and teach, each other on a day-to-day basis.
+- **Layer 2: Power BI community**: People ask questions of the internal Teams community to learn from each other and communicate important information.
+- **Layer 3: Central BI team and COE**: People submit email requests for assistance. *Office hour* sessions are held twice per week to collectively discuss problems and share ideas.
 
 > [!IMPORTANT]
 > Although the first two layers are less formal, they're equally important as the third layer of support. Experienced users tend to rely mostly on people they know, whereas newer users (or those who are the single data analyst for a business unit or shared service) tend to rely more on formal support.
@@ -165,7 +168,7 @@ Other helpful resources include:
 - [Microsoft's BI transformation](center-of-excellence-microsoft-business-intelligence-transformation.md)
 - [Power BI implementation planning](powerbi-implementation-planning-introduction.md)
 - [Dashboard in a Day](https://powerbi.microsoft.com/diad/)
-- Questions? [Try asking the Power BI Community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com/)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)
 
-Experienced Power BI partners are available to help your organization succeed with the migration process. To engage a Power BI partner, visit the [Power BI partner portal](https://powerbi.microsoft.com/partners/).
+Experienced Power BI partners are available to help your organization succeed with the migration process. To find a Power BI partner, visit the [Microsoft Power BI partners portal](https://www.microsoft.com/power-platform/products/power-bi/partners).

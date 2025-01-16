@@ -7,14 +7,14 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: report-builder
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 08/26/2024
 ---
 
 # Supported data sources for Power BI paginated reports
 
 [!INCLUDE [applies-yes-report-builder-no-desktop](../includes/applies-yes-report-builder-no-desktop.md)] 
 
-This article describes supported data sources for paginated reports in the Power BI service, and how to connect to Azure SQL Database data sources. Some data sources are supported natively. You can connect to others by using data gateways.
+This article describes supported data sources for paginated reports in the Power BI service, and how to connect to Azure SQL Database data sources. Some data sources are supported natively. You can connect to others by using data gateways or using [Get Data experience in Power BI Report Builder](./report-builder/connect-snowflake-databricks-power-query-online.md).
 
 ## Prerequisites 
 
@@ -78,10 +78,10 @@ For Azure SQL Database data sources, here are the supported authentication types
 - OAuth2 (stored Microsoft Entra token)
 
 For SSO and OAuth2 to work correctly, the Azure SQL Database server that the data source connects to needs to have [Microsoft Entra authentication support enabled](/azure/sql-database/sql-database-aad-authentication-configure). For the OAuth2 authentication method, Microsoft Entra ID generates a token and stores it for future data source access. To use the [SSO authentication method](../connect-data/service-azure-sql-database-with-direct-connect.md#single-sign-on) instead, select the SSO option right below it, **End users use their own OAuth2 credentials when accessing this data source via DirectQuery**.
-  
+
 ## Considerations and limitations
 
-When using a Power BI semantic model as a data source, you might see an error message **Request failed because response is too large, either reduce the amount of data or use the XMLA endpoint.** if the data is larger than 2 GB. In that case, either reduce the amount of data, for example by applying filters, or use the XMLA endpoint. Note that when using XMLA endpoint, you need to grant Build permission on the Power BI semantic model to all users viewing the paginated report. Learn more about the [XMLA endpoint](../enterprise/service-premium-connect-tools.md). By default, Power BI Report Builder and paginated reports use the **Analyze in Excel** endpoint [(which has a 2-GB data limit)](../collaborate-share/service-analyze-in-excel.md#considerations-and-limitations) to support Power BI semantic models in any workspace.
+- When connecting to Fabric Lakehouse using SQL analytics endpoint, note that you cannot set Query type in Power BI Report Builder's Dataset Properties dialog. As a workaround, select Text option and invoke the stored procedure.
 
 ## Next steps
 - [Connect to an Oracle data source](./report-data/oracle-connection-type.md)

@@ -7,7 +7,8 @@ ms.reviewer: ""
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: tutorial
-ms.date: 12/19/2022
+ms.date: 10/10/2024
+#customer intent: As a Power BI visual developer, I want to learn how to add formatting options to my custom visual so I can customize the visual appearance.
 ---
 
 # Tutorial: Add formatting options to the Circle Card visual
@@ -119,19 +120,19 @@ Now let's add new group called *color* for configuring the circle color and thic
             name: "circleColor",
             displayName: "Color",
             value: { value: "#ffffff" },
-            show: true
+            visible: true
         });
 
         public circleThickness = new formattingSettings.NumUpDown({
             name: "circleThickness",
             displayName: "Thickness",
             value: 2,
-            show: true
+            visible: true
         });
 
         public name: string = "circle";
         public displayName: string = "Circle";
-        public show: boolean = true;
+        public visible: boolean = true;
         public slices: FormattingSettingsSlice[] = [this.circleColor, this.circleThickness]
     }
 
@@ -233,10 +234,11 @@ For tips about debugging your custom visual, see the [debugging guide](visuals-h
 
 Now that the visual is completed and ready to be used, it's time to package it. A packaged visual can be imported to Power BI reports or service to be used and enjoyed by others.
 
-When your visual is ready, follow the directions in [Package a Power BI visual](./package-visual.md) and then, if you want, share it with others so they can [import](./import-visual.md) and enjoy it. 
+When your visual is ready, follow the directions in [Package a Power BI visual](./package-visual.md) and then, if you want, share it with others so they can [import](./import-visual.md) and enjoy it.
 
 ## Related content
 
+* [Learn more about the new Format Pane](format-pane-general.md)
 * [Create a Power BI bar chart visual](create-bar-chart.md)
 * [Learn how to debug a Power BI visual you created](visuals-how-to-debug.md)
 * [Power BI visuals project structure](visual-project-structure.md)

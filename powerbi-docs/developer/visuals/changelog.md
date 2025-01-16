@@ -1,23 +1,48 @@
 ---
 title: Power BI visuals API changelog
-description: This article describes main changes in different versions of Power BI visuals API.
+description: This article provides a list of each Power BI visuals API version and the main changes made to each update.
 author: mberdugo
 ms.author: monaberdugo
-ms.reviewer: sranins
+ms.reviewer: tebercov 
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: reference
-ms.date: 12/19/2023
+ms.date: 07/03/2024
 ---
 
 # Power BI visuals API changelog
 
 This page contains a short summary of the existing API versions and what to expect in the upcoming version. Versions listed here are considered stable and don't change.
 
-## Coming soon
+<!--- ## Coming soon
+https://github.com/microsoft/powerbi-visuals-api/blob/main/CHANGELOG.md
+* Authentication API extensions --->
 
-* **Local storage API**: A new version of local storage API available for all custom visuals and controlled by a global admin setting that is *on* by default. The admin can Turn off the global setting to disable both the legacy API and the new version of the API.
-* **On-object support for custom visuals**: On object support for custom visuals to optimize the user experience and provide a unified authoring experience on par with out of the box visuals.
+## API v5.10.0
+
+* **DataViewMetadataColumn** has a new property called `sourceFieldParameters`. This property indicates if the current field is the result of a field parameter. If a single field can originate from multiple field parameters, this property lists all the related field parameters.
+* Supports Desktop June 2024
+
+## API v5.9.1
+
+* [`acquireAADTokenService`](./authentication-api.md): Enhanced to support the following clouds.
+  * Commercial Cloud
+  * China Cloud
+  * US Government Community Cloud
+  * US Government Community Cloud High
+  * US Department of Defense Cloud
+
+## API v5.9.0
+
+* [**Hierarchical identity filter API**](./hierarchy-filter-api.md): Allows you to create a visual that uses Matrix DataView Mapping to filter data based on data points that use a hierarchical structure. This is useful for custom visuals that leverage group-on keys semantic models and want to filter hierarchies based on data points.
+* [`acquireAADTokenService`](./authentication-api.md): Extended with additional properties
+* Supports Desktop March 2024
+
+## API v5.8.0
+
+* [**Local storage API**](./local-storage.md): A new version of local storage API available for all custom visuals and controlled by a global setting that is *on* by default. The admin can Turn off the global setting to disable both the legacy API and the new version of the API.
+* [**On-object support for custom visuals**](./on-object-formatting-api.md): On object support for custom visuals to optimize the user experience and provide a unified authoring experience on par with out of the box visuals.
+* Supports Desktop February 2024
 
 ## API v5.7.0
 
@@ -51,7 +76,7 @@ This page contains a short summary of the existing API versions and what to expe
 * **[Custom sorting](./sort-options.md#custom-sorting)** - improved custom sorting for tables
 * **[Subtotals](./total-subtotal-api.md)** - new *Subtotals Type* indicates if totals should be retrieved before or after the rest of the data
 * **[Identity filter](./identity-filter-api.md)** - filter categorical data
-* **[New format pane](./format-pane.md)** - design a custom visual that supports the new format pane design
+* **[New format pane](./format-pane-general.md)** - design a custom visual that supports the new format pane design
 * Supports Desktop October 2022
 
 ## API v4.7.0
@@ -212,10 +237,10 @@ This page contains a short summary of the existing API versions and what to expe
 ## API v1.1.0
 
 * Supports debug visual in iFrame
-* Adds light weight sandbox with faster initialization of the iFrame
+* Adds lightweight sandbox with faster initialization of the iFrame
 * Fixes [Capabilities.objects does not support "text" type](https://github.com/Microsoft/PowerBI-visuals-tools/issues/12) issue
 * Supports `pbiviz update` to update visual API type definitions and schema
-* Supports `--api-version` flag in `pbiviz new` to create visuals with a specific api version
+* Supports `--api-version` flag in `pbiviz new` to create visuals with a specific API version
 * Supports alpha release of API v1.2.0
 
 ### Visual Host

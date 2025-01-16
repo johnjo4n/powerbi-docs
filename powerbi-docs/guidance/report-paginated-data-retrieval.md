@@ -1,13 +1,14 @@
 ---
-title: Data retrieval guidance for paginated reports
-description: Guidance for creating data sources and datasets for Power BI paginated reports.
-author: maggiemsft
-ms.author: maggies
-ms.reviewer: nisrinivasan
+title: "Data retrieval guidance for paginated reports"
+description: "Guidance for creating data sources and datasets for Power BI paginated reports."
+author: denglishbi
+ms.author: daengli
+ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Data retrieval guidance for paginated reports
@@ -23,7 +24,7 @@ If you can choose the data source type (possibly the case in a new project), we 
 > [!NOTE]
 > While it's currently not possible to connect to on-premises databases using SSO, you can still enforce row-level permissions. It's done by passing the **UserID** built-in field to a dataset query parameter. The data source will need to store User Principal Name (UPN) values in a way that it can correctly filter query results.
 >
-> For example, consider that each salesperson is stored as a row in the **Salesperson** a table.  The table has columns for UPN, and also the salesperson's sales region. At query time, the table is filtered by the UPN of the report user, and it's also related to sales facts using an inner join. This way, the query effectively filters sales fact rows to those of the report user's sales region.
+> For example, consider that each salesperson is stored as a row in the **Salesperson** a table.  The table has columns for UPN, and also the salesperson's sales region. At query time, the table is filtered by the UPN of the report user, and it's also related to sales facts using an `INNER JOIN`. This way, the query effectively filters sales fact rows to those of the report user's sales region.
 
 ### Relational data sources
 
@@ -41,14 +42,14 @@ In Power BI Report Builder, you can use the relational query designer to graphic
 
 Analytic data sources—also known as _data models_ or just _models_—are well suited to both operational and analytic reports, and can deliver fast summarized query results even over very large data volumes. Model measures and KPIs can encapsulate complex business rules to achieve summarization of data. These data sources, however, aren't suited to reports that need to retrieve very large volumes of data (in excess of 10,000 rows).
 
-In Power BI Report Builder, you have a choice of two query designers: The Analysis Services DAX query designer, and the Analysis Services MDX query designer. These designers can be used for Power BI semantic model ([previously known as a dataset](../connect-data/service-datasets-rename.md)) data sources, or any SQL Server Analysis Services or Azure Analysis Services model—tabular or multidimensional.
+In Power BI Report Builder, you have a choice of two query designers: The Analysis Services DAX query designer, and the Analysis Services MDX query designer. These designers can be used for Power BI semantic model data sources, or any SQL Server Analysis Services or Azure Analysis Services model—tabular or multidimensional.
 
 We recommend that you use the DAX query designer—providing it entirely meets your query needs. If the model doesn't define the measures you need, you'll need to switch to query mode. In this mode, you can customize the query statement by adding expressions (to achieve summarization).
 
 The MDX query designer requires your model to include measures. The designer has two capabilities not supported by the DAX query designer. Specifically, it allows you to:
 
 - Define query-level calculated members (in MDX).
-- Configure data regions to request [server aggregates](../paginated-reports/expressions/report-builder-functions-aggregate-functions-reference.md) in non-detail groups. If your report needs to present summaries of semi- or non-additive measures (like time intelligence calculations, or distinct counts), it will likely be more efficient to use server aggregates than to retrieve low-level detail rows and have the report compute summarizations.
+- Configure data regions to request [server aggregates](/sql/reporting-services/report-design/report-builder-functions-aggregate-functions-reference) in non-detail groups. If your report needs to present summaries of semi- or non-additive measures (like time intelligence calculations, or distinct counts), it will likely be more efficient to use server aggregates than to retrieve low-level detail rows and have the report compute summarizations.
 
 ## Query result size
 
@@ -147,5 +148,5 @@ When a report is run, all datasets are evaluated—even if they're not bound to 
 For more information related to this article, check out the following resources:
 
 - [Supported data sources for Power BI paginated reports](../paginated-reports/paginated-reports-data-sources.md)
-- Questions? [Try asking the Power BI Community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com/)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)

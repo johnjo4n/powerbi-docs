@@ -1,20 +1,21 @@
 ---
-title: On-premises data gateway sizing
-description: Guidance for working sizing the On-premises data gateway.
-author: peter-myers
-ms.author: v-myerspeter
+title: "On-premises data gateway sizing"
+description: "Guidance for working sizing the On-premises data gateway."
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-gateways
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # On-premises data gateway sizing
 
-This article targets Power BI administrators who need to install and manage the [on-premises data gateway](../connect-data/service-gateway-onprem.md).
+This article targets Fabric administrators who need to install and manage the [on-premises data gateway](../connect-data/service-gateway-onprem.md).
 
-The gateway is required whenever Power BI must access data that isn't accessible directly over the Internet. It can be installed on a server on-premises, or VM-hosted Infrastructure-as-a-Service (IaaS).
+The gateway is required whenever Power BI must access data that isn't accessible directly over the Internet. It can be installed on a server on-premises, or VM-hosted infrastructure as a service (IaaS).
 
 ## Gateway workloads
 
@@ -22,13 +23,13 @@ The on-premises data gateway supports two workloads. It's important you first un
 
 ### Cached data workload
 
-The _Cached data_ workload retrieves and transforms source data for loading into Power BI semantic models ([previously known as datasets](../connect-data/service-datasets-rename.md)). It does so in three steps:
+The _Cached data_ workload retrieves and transforms source data for loading into Power BI semantic models. It does so in three steps:
 
 1. **Connection**: The gateway connects to source data.
 1. **Data retrieval and transformation**: Data is retrieved, and when necessary, transformed. Whenever possible, the Power Query mashup engine pushes transformation steps to the data source—it's known as _[query folding](power-query-folding.md)_. When it's not possible, transformations must be done by the gateway. In this case, the gateway will consume more CPU and memory resources.
 1. **Transfer**: Data is transferred to the Power BI service—a reliable and fast Internet connection is important, especially for large data volumes.
 
-![Diagram of Cache Data showing the on-premises data gateway connecting to on-premises sources.](media/gateway-onprem-sizing/gateway-onprem-workload-cached-data.png)
+:::image type="content" source="media/gateway-onprem-sizing/gateway-onprem-workload-cached-data.png" alt-text="Diagram of Cache Data showing the on-premises data gateway connecting to on-premises sources." border="false":::
 
 ### Live Connection and DirectQuery workloads
 
@@ -41,29 +42,31 @@ This workload requires CPU resources for routing queries and query results. Usua
 
 Reliable, fast, and consistent connectivity is important to ensure report users have responsive experiences.
 
-![Diagram of Live Connection and DirectQuery showing the on-premises data gateway connecting to on-premises sources.](media/gateway-onprem-sizing/gateway-onprem-workload-liveconnection-directquery.png)
+:::image type="content" source="media/gateway-onprem-sizing/gateway-onprem-workload-liveconnection-directquery.png" alt-text="Diagram of Live Connection and DirectQuery showing the on-premises data gateway connecting to on-premises sources." border="false":::
 
 ## Sizing considerations
 
 Determining the correct sizing for your gateway machine can depend on the following variables:
 
-- **For Cache data workloads:**
+- **For Cache data workloads**:
   - The number of concurrent semantic model refreshes
   - The types of data sources (relational database, analytic database, data feeds, or files)
   - The volume of data to be retrieved from data sources
   - Any transformations required to be done by the Power Query mashup engine
   - The volume of data to be transferred to the Power BI service
-- **For Live Connection and DirectQuery workloads:**
+- **For Live Connection and DirectQuery workloads**:
   - The number of concurrent report users
   - The number of visuals on report pages (each visual sends at least one query)
   - The frequency of Power BI dashboard query cache updates
   - The number of real-time reports using the [Automatic page refresh](../create-reports/desktop-automatic-page-refresh.md) feature
-  - Whether semantic models enforce [Row-level Security (RLS)](../enterprise/service-admin-rls.md)
+  - Whether semantic models enforce [Row-level Security (RLS)](/fabric/security/service-admin-row-level-security)
 
 Generally, Live Connection and DirectQuery workloads require sufficient CPU, while Cache data workloads require more CPU and memory. Both workloads depend on good connectivity with the Power BI service, and the data sources.
 
 > [!NOTE]
-> Power BI capacities impose limits on model refresh parallelism, and Live Connection and DirectQuery throughput. There's no point sizing your gateways to deliver more than what the Power BI service supports. Limits differ by Premium SKU (and equivalently sized A SKU). For more information, see [What is Power BI Premium? (Capacity nodes)](../enterprise/service-premium-what-is.md#capacities-and-skus).
+> Power BI capacities impose limits on model refresh parallelism, and Live Connection and DirectQuery throughput. There's no point sizing your gateways to deliver more than what the Power BI service supports. Limits differ by Premium SKU (and equivalently sized A SKU). For more information, see [Microsoft Fabric capacity licenses](/fabric/enterprise/licenses#capacity-license) and [What is Power BI Premium? (Capacity nodes)](../enterprise/service-premium-what-is.md#capacities-and-skus).
+
+[!INCLUDE [powerbi-premium-notification](includes/powerbi-premium-notification.md)]
 
 ## Recommendations
 
@@ -79,7 +82,7 @@ Plan for the best possible connectivity between the Power BI service and your ga
 
 - Strive for reliability, fast speeds, and low, consistent latencies.
 - Eliminate—or reduce—machine hops between the gateway and your data sources.
-- Remove any network throttling imposed by your firewall proxy layer. For more information about Power BI endpoints, see [Add Power BI URLs to your allow list](../admin/power-bi-allow-list-urls.md).
+- Remove any network throttling imposed by your firewall proxy layer. For more information about Power BI endpoints, see [Add Power BI URLs to your allow list](/fabric/security/power-bi-allow-list-urls).
 - Set up [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to establish private, managed connections to Power BI.
 - For data sources in Azure VMs, ensure the VMs are [colocated with the Power BI service](../admin/service-admin-where-is-my-tenant-located.md).
 - For Live Connection workloads to SQL Server Analysis Services (SSAS) involving dynamic RLS, ensure good connectivity between the gateway machine and the on-premises Active Directory.
@@ -120,11 +123,12 @@ For Live Connection semantic models:
 
 For more information related to this article, check out the following resources:
 
+- [Power BI implementation planning: Data gateways](powerbi-implementation-planning-data-gateways.md)
 - [Guidance for deploying a data gateway for Power BI](../connect-data/service-gateway-deployment-guidance.md)
 - [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 - [Monitor and optimize on-premises data gateway performance](/data-integration/gateway/service-gateway-performance)
 - [Troubleshoot gateways - Power BI](../connect-data/service-gateway-onprem-tshoot.md)
 - [Troubleshoot the on-premises data gateway](/data-integration/gateway/service-gateway-tshoot)
 - [The importance of query folding](power-query-folding.md)
-- Questions? [Try asking the Power BI Community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)

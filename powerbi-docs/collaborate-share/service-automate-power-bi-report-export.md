@@ -7,7 +7,7 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: pbi-collaborate-share
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/12/2024
 LocalizationGroup: Get started
 ---
 # Export and email a Power BI report with Power Automate
@@ -54,9 +54,16 @@ In this task, you create a simple flow from scratch. The flow exports a Power BI
  
     :::image type="content" source="media/service-automate-power-bi-report-export/automate-report-export-file-10.png" alt-text="Screenshot of the export to file for Power BI reports.":::
 
+    > [!NOTE]
+    > If you export multiple pages to PNG format, a series of *.png* files, each file representing one report page, will be compressed into a *.zip* file which will be attached to your email.
+
 11. Optionally, indicate specific pages to export in the **Pages pageName -1** field. The page name parameter is different from the display page name. To find the page name, navigate to the page in the Power BI service, and copy the last portion of the URL as shown in the example. 
  
     `https://app.powerbi.com/groups/workspaceGuid/reports/reportGuid/xxxxxxxxxx`
+
+    Something like this:
+
+    `https://app.powerbi.com/groups/338cd931-b957-4ba6-a5fa-b0113dab53aa/reports/85ac7583-3bb2-4c2c-a1fa-5a4a875ba88c/ReportSection?ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&experience=power-bi`
 
 12. Optionally, indicate a specific bookmark to display in the **Bookmark Name** field. You can find the bookmark name in the report URL after bookmarkGuid=, as shown in the example. Only *report* bookmarks are supported, not *personal* bookmarks. You can specify other parameters for the Power BI report. Find detailed descriptions of these parameters in the [Export to File for Power BI Reports](/connectors/powerbi/#export-to-file-for-power-bi-reports).
 
@@ -77,7 +84,7 @@ In this task, you create a simple flow from scratch. The flow exports a Power BI
 ## Row-level security in Power Automate 
 Optionally, if you want to send the report based on row-level security (RLS), you need to add the following details:
 
-:::image type="content" source="media/service-automate-power-bi-report-export/export-power-automate-rls-fields.png" alt-text="Screenshot of updating Identities Username fields.":::
+:::image type="content" source="media/service-automate-power-bi-report-export/export-power-automate-rls-field.png" alt-text="Screenshot of updating Identities Username fields.":::
 
 - **Identities Username - 1** = The effective username reflected by a token for applying RLS rules. For an on-premises model, username can be composed of alpha-numerical characters, or any of the following characters: `'.', '-', '_', '!', '#', '^', '~', '\', and '@'`. For cloud models, username can be composed of all ASCII characters. Also, username can be up to 256 characters, and can't contain spaces.
 - **Identities Semantic model - 1** = You can get this value by going to the settings of the semantic model, and then copying the semantic model ID from the address bar, as shown in this example and in the following image:

@@ -7,7 +7,7 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-developer
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 01/15/2025
 ---
 
 # Capacity and SKUs in Power BI embedded analytics
@@ -35,7 +35,7 @@ Power BI embedded analytics offers two publishing solutions, and Microsoft Fabri
 Power BI Embedded is for ISVs and developers who want to embed visuals into their applications.
 
 Applications using Power BI Embedded allow users to consume content stored on Power BI Embedded capacity.
-Power BI Embedded is shipped with an [*A* SKU](../../enterprise/service-admin-premium-purchase.md#purchase-a-skus-for-testing-and-other-scenarios).
+Power BI Embedded is shipped with an [*A* SKU](./embedded-capacity.md).
 
 ### Power BI Premium
 
@@ -46,7 +46,7 @@ Power BI Premium is a SaaS product that allows users to consume content through 
 Power BI premium offers two SKUs, *P* and *EM*.
 
 * [Understand the differences between the *P* and *EM* SKUs](../../enterprise/service-premium-what-is.md#subscriptions-and-licensing)
-* [Buy a Premium SKU](../../enterprise/service-admin-premium-purchase.md)
+* [Buy a Premium SKU](/power-bi/enterprise)
 
 ### Microsoft Fabric
 
@@ -59,6 +59,8 @@ Power BI premium offers two SKUs, *P* and *EM*.
 To understand which workloads are supported for each tier, refer to the [Configure workloads in a Premium capacity](../../enterprise/service-admin-premium-workloads.md) article.
 
 To plan and test your capacity, see [Capacity planning](embedded-capacity-planning.md).
+
+To see what capacity you currently have, go to **Workspace settings -> License info**. If you're an admin, you can see all the capacities in your tenant in the [capacity settings](/fabric/admin/capacity-settings).
 
 ### Which SKU should I use?
 
@@ -75,10 +77,7 @@ In this table, a custom app refers to a web app created using embedded analytics
 |[Secure URL embedding](../../collaborate-share/service-embed-secure.md)</br>(embed from Power BI service)     |✔        |✖        |✔         |
 
 >[!NOTE]
->
->* A [Power BI Pro](../../enterprise/service-admin-purchasing-power-bi-pro.md) or Premium Per User (PPU) license is needed for publishing content to a Power BI app workspace.
->* Only **P SKU**s and **F SKU**s equivalent to a **F64 SKU** or higher, allow free Power BI users to consume Power BI apps and shared content in Power BI service. Smaller SKUs require a Pro license to consume Power BI content.
->* The **F SKU** is part of Fabric. To read more about *F* SKUs see [Microsoft Fabric licenses](/fabric/enterprise/licenses).
+> To read more about **F SKU**s see [Microsoft Fabric licenses](/fabric/enterprise/licenses).
 
 ### Capacity considerations
 

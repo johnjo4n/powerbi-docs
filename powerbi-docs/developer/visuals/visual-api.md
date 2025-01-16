@@ -1,9 +1,9 @@
 ---
-title:  Visual API
-description: This article describes how to use IVisual API for Power BI visuals.
+title:  Visual API for Power BI Visuals
+description: This article provides a comprehensive guide on how to use the IVisual API for Power BI visuals, including step-by-step instructions and code examples.
 author: mberdugo
 ms.author: monaberdugo
-ms.reviewer: sranins
+ms.reviewer: tebercov 
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: reference
@@ -115,7 +115,7 @@ public update(options: VisualUpdateOptions): void
 
 ## getFormattingModel *(optional)*
 
-This method is called once each time we open the properties pane or the user edits any of the properties in the pane. It returns [`FormattingModel`](./format-pane.md) with all information on the properties pane design, hierarchy, properties, and latest formatting values.
+This method is called once each time we open the properties pane or the user edits any of the properties in the pane. It returns [`FormattingModel`](./format-pane-general.md) with all information on the properties pane design, hierarchy, properties, and latest formatting values.
 
 ```typescript
 getFormattingModel(): visuals.FormattingModel;

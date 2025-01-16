@@ -9,14 +9,14 @@ ms.service: powerbi
 ms.subservice: pbi-collaborate-share
 ms.topic: how-to
 LocalizationGroup: Share your work
-ms.date: 11/15/2023
+ms.date: 01/07/2025
 ---
 
 # Embed a report web part in SharePoint Online
 
 The Power BI report web part for SharePoint Online allows you to embed interactive Power BI reports in SharePoint Online pages.
 
-When you use the **Embed in SharePoint Online** option, the embedded reports respect all item permissions and data security through [row-level security (RLS)](../enterprise/service-admin-rls.md), so you can easily create secure internal portals.
+When you use the **Embed in SharePoint Online** option, the embedded reports respect all item permissions and data security through [row-level security (RLS)](/fabric/security/service-admin-row-level-security), so you can easily create secure internal portals.
 
 ## Requirements
 
@@ -26,6 +26,7 @@ For **Embed report in SharePoint Online** reports to work:
 * To use an embedded report, users must sign in to the Power BI service to activate their Power BI license.
 * To embed a web part in SharePoint Online, you need a Power BI Pro or Premium Per User (PPU) license.
 * Users with a free Fabric license can view a report that's hosted in a [Power BI Premium capacity (EM or P SKU)](../enterprise/service-premium-what-is.md) or [Fabric F64 or greater capacity](/fabric/enterprise/licenses#capacity-and-skus).
+* SharePoint Embed is now supported in air gap environments.
 
 ## Embed your report
 
@@ -149,7 +150,7 @@ Contact the SharePoint Online page owner to help resolve the issue.
 
 ## Licensing
 
-Users viewing a report in SharePoint need either a **Power BI Pro or Premium Per User (PPU) license** or the content needs to be in a workspace that's in a **[Power BI Premium capacity (EM or P SKU)](../enterprise/service-admin-premium-purchase.md)**.
+Users viewing a report in SharePoint need either a **Power BI Pro or Premium Per User (PPU) license** or the content needs to be in a workspace that's in a **[Power BI Premium capacity (EM or P SKU)](../enterprise/service-premium-what-is.md#capacities-and-skus)**.
 
 ## Known issues and limitations
 
@@ -163,6 +164,8 @@ Users viewing a report in SharePoint need either a **Power BI Pro or Premium Per
   
   * Azure B2B Guest user accounts aren't supported. Users see the Power BI logo that shows the part is loading, but it doesn't show the report.
 
+* When viewing Power BI reports embedded in SharePoint Online, there's no option for users to switch between Power BI environments.
+
 * Power BI doesn't support the same localized languages that SharePoint Online does. As a result, you might not see proper localization within the embedded report.
 
 * You might encounter issues if you use Internet Explorer 10. Here's a link  [supported browsers for Power BI](../fundamentals/power-bi-browsers.md).
@@ -170,6 +173,8 @@ Users viewing a report in SharePoint need either a **Power BI Pro or Premium Per
 * The classic SharePoint Server isn't supported with this web part.
 
 * [URL filters](service-url-filters.md) aren't supported with the SharePoint Online web part.
+
+* You can't view or access Power BI Apps embedded in a SharePoint site page using a Power BI web part. To access the embedded Power BI report, access the app first in Power BI service before accessing it in the SharePoint site page.
 
 ## Related content
 

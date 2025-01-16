@@ -64,7 +64,7 @@ Once connected, select the tables you want to load into your datamart. You can a
 
 :::image type="content" source="media/datamarts-get-started/datamarts-get-started-13.png" alt-text="Screenshot of loading data for a datamart.":::
 
-For each table you select, a corresponding view is created in the datamart that appears in the **Object explorer** in **Data View**.
+For each table you select, a corresponding view is created in the datamart that appears in the **Object explorer** in **Table View**.
 
 
 ## Model data
@@ -119,7 +119,7 @@ Select the **Confirm** button when your relationship is complete to save the rel
 
 ### Hide elements from downstream reporting
 
-You can hide elements of your datamart from downstream reporting by selecting **Data view** and right-clicking on the column or table you want to hide. Then select **Hide in report view** from the menu that appears to hide the item from downstream reporting.
+You can hide elements of your datamart from downstream reporting by selecting **Table view** and right-clicking on the column or table you want to hide. Then select **Hide in report view** from the menu that appears to hide the item from downstream reporting.
 
 :::image type="content" source="media/datamarts-get-started/datamarts-get-started-17.png" alt-text="Screenshot of hiding an element from downstream reporting.":::
 
@@ -248,11 +248,10 @@ The following table shows settings for auto-generated semantic models. When thes
 | Query caching | :::image type="content" source="media/datamarts-create-reports/datamarts-create-reports-18.png" alt-text="Screenshot of the query caching setting."::: |
 
 ## Datamarts considerations and limitations
-
-When using datamarts with [named connections](/power-query/connection-authentication-pqo), the following limitations apply:
-
-* You can only create one cloud connection of a particular path and type, for example, you could only create one SQL plus server/database cloud connection. You can create multiple gateway connections.
-* You cannot name or rename cloud data sources; you can name or rename gateway connections.
+* Only the datamart owner can add or change data sources corresponding to a datamart. If the current datamart owner is unavailable, another workspace owner can use the *Takeover* feature to gain access.
+* When using datamarts with [named connections](/power-query/connection-authentication-pqo), the following limitations apply:
+   * You can only create one cloud connection of a particular path and type, for example, you could only create one SQL plus server/database cloud connection. You can create multiple gateway connections.
+   * You cannot name or rename cloud data sources; you can name or rename gateway connections.
 
 ## Related content
 This article provided sample data and instructions on how to create and interact with datamarts. 

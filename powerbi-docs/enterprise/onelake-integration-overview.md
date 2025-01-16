@@ -2,7 +2,7 @@
 title: Learn about Microsoft OneLake Delta table integration in Power BI and Microsoft Fabric
 description: Describes using Microsoft OneLake integration to automatically write import data into Delta tables.
 author: kfollis
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-premium
@@ -29,7 +29,7 @@ OneLake integration for semantic models is supported on Power BI Premium P and M
 
 Before enabling OneLake integration, you must have:
 
-- One or more import semantic models in a workspace on a Power BI Premium or Fabric capacity.
+- One or more [import semantic models](/fabric/get-started/direct-lake-overview#comparison-to-other-storage-modes) in a workspace on a Power BI Premium or Fabric capacity. Import semantic model is a type of data model where data is fully imported into Power BI's in-memory storage, allowing fast and efficient querying.
 - [Large semantic model storage format](service-premium-large-models.md) enabled for the model.
 
 ## Permissions
@@ -110,6 +110,8 @@ By creating [shortcuts](/fabric/onelake/onelake-shortcuts) for your semantic mod
 
 - During preview, [Multi-Geo](/fabric/admin/service-admin-premium-multi-geo) capacities are not yet supported.
 
+- During preview, the operation of exporting the model to OneLake is not billed, but [compute and storage usage of the exported model on OneLake](/fabric/onelake/onelake-consumption) is billed.
+ 
 - For users with *contributor* permissions for exported model tables but only *viewer* permissions for the workspace, a model folder appears in Lakehouse explorer, but an error is returned when selected.
 
 - Measures, DirectQuery tables, hybrid tables, calculation group tables, and system managed aggregation tables can't be exported to Delta format tables.

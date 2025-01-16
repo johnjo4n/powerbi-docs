@@ -1,13 +1,14 @@
 ---
-title: Conduct proof of concept to migrate to Power BI
-description: Guidance on conducting a proof of concept when migrating to Power BI.
-author: peter-myers
-ms.author: v-myerspeter
+title: "Conduct proof of concept to migrate to Power BI"
+description: "Guidance on conducting a proof of concept when migrating to Power BI."
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 02/27/2022
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Conduct proof of concept to migrate to Power BI
@@ -36,7 +37,7 @@ When conducting a POC, focus on the following goals:
 - Verify your assumptions about how a feature works.
 - Educate yourself on differences in how Power BI works compared with the legacy BI platform.
 - Validate initial understandings of certain requirements with subject matter experts.
-- Create a small semantic model ([previously known as a dataset](../connect-data/service-datasets-rename.md)) with real data to understand and detect any issues with the data structure, relationships, data types, or data values.
+- Create a small semantic model with real data to understand and detect any issues with the data structure, relationships, data types, or data values.
 - Experiment with, and validate, [DAX syntax](/dax/) expressions used by model calculations.
 - Test data source connectivity using a gateway (if it's to be a gateway source).
 - Test data refresh using a gateway (if it's to be a gateway source).
@@ -90,7 +91,7 @@ Other helpful resources include:
 
 - [Microsoft's BI transformation](center-of-excellence-microsoft-business-intelligence-transformation.md)
 - [Power BI implementation planning](powerbi-implementation-planning-introduction.md)
-- Questions? [Try asking the Power BI Community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com/)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)
 
-Experienced Power BI partners are available to help your organization succeed with the migration process. To engage a Power BI partner, visit the [Power BI partner portal](https://powerbi.microsoft.com/partners/).
+Experienced Power BI partners are available to help your organization succeed with the migration process. To find a Power BI partner, visit the [Microsoft Power BI partners portal](https://www.microsoft.com/power-platform/products/power-bi/partners).

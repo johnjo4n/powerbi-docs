@@ -7,14 +7,14 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-admin
 ms.topic: how-to
-ms.date: 11/10/2023
+ms.date: 12/22/2024
 
 LocalizationGroup: Premium
 ---
 
 # Bring your own encryption keys for Power BI
 
-Power BI encrypts data *at-rest* and *in process*. By default, Power BI uses Microsoft-managed keys to encrypt your data. In Power BI Premium, you can also use your own keys for data at-rest that's imported into a semantic model. This approach is often described as *bring your own key* (BYOK). For more information, see [Data source and storage considerations](#data-source-and-storage-considerations). 
+By default, Power BI uses Microsoft-managed keys to encrypt your data. In Power BI Premium, you can also use your own keys for data at-rest that's imported into a semantic model. This approach is often described as *bring your own key* (BYOK). For more information, see [Data source and storage considerations](#data-source-and-storage-considerations). 
 
 ## Why use BYOK?
 
@@ -25,11 +25,12 @@ BYOK makes it easier to meet compliance requirements that specify key arrangemen
 To use BYOK, you must upload data to the Power BI service from a Power BI Desktop (PBIX) file. You can't use BYOK in the following scenarios:
 
 - Analysis Services Live Connection
-- Excel workbooks, unless data is first imported into Power BI Desktop
+- Excel workbooks, unless data is first imported into Power BI Desktop.
+    >[!NOTE]
+    >For Excel workbooks stored in SharePoint and OneDrive, you can use [Customer Key](/purview/customer-key-set-up#onboard-to-customer-key-for-sharepoint-and-onedrive).
 - [Push semantic models](/rest/api/power-bi/pushdatasets)
 - [Streaming semantic models](../connect-data/service-real-time-streaming.md#set-up-your-real-time-streaming-semantic-model-in-power-bi)
 - [Power BI metrics](../create-reports/service-goals-introduction.md) don't currently support BYOK
-
 
 BYOK applies only to semantic models. Push semantic models, Excel files, and CSV files that users can upload to the service aren't encrypted using your own key. To identify which items are stored in your workspaces, use the following PowerShell command:
 

@@ -1,20 +1,21 @@
 ---
-title: Separate reports from models in Power BI Desktop
-description: Guidance for separating reports from models in Power BI Desktop.
-author: peter-myers
-ms.author: v-myerspeter
+title: "Separate reports from models in Power BI Desktop"
+description: "Guidance for separating reports from models in Power BI Desktop."
+author: denglishbi
+ms.author: daengli
 ms.reviewer: maroche
 ms.service: powerbi
 ms.subservice: powerbi-resource
 ms.topic: conceptual
-ms.date: 04/11/2020
+ms.custom: fabric-cat
+ms.date: 12/30/2024
 ---
 
 # Separate reports from models in Power BI Desktop
 
 When creating a new Power BI Desktop solution, one of the first tasks you need to do is "get data". Getting data can result in two distinctly different outcomes. It could:
 
-- Create a [live connection](../connect-data/desktop-report-lifecycle-datasets.md) to an already-published model, which could be either a Power BI semantic model ([previously known as a dataset](../connect-data/service-datasets-rename.md)) or a remote-hosted Analysis Services model.
+- Create a [live connection](../connect-data/desktop-report-lifecycle-datasets.md) to an already-published model, which could be either a Power BI semantic model or a remote-hosted Analysis Services model.
 - Commence the development of a new model, which could be either an Import, DirectQuery, or Composite model.
 
 This article is concerned with the second scenario. It provides guidance on whether a report and model should be combined into a single Power BI Desktop file.
@@ -65,5 +66,5 @@ For more information related to this article, check out the following resources:
 - [Connect to semantic model in the Power BI service from Power BI Desktop](../connect-data/desktop-report-lifecycle-datasets.md)
 - [View related content in the Power BI service](../consumer/end-user-related.md)
 - [Data lineage](../collaborate-share/service-data-lineage.md)
-- Questions? [Try asking the Power BI Community](https://community.powerbi.com/)
-- Suggestions? [Contribute ideas to improve Power BI](https://ideas.powerbi.com/)
+- Questions? [Try asking the Fabric Community](https://community.fabric.microsoft.com/)
+- Suggestions? [Contribute ideas to improve Fabric](https://ideas.fabric.microsoft.com/)
